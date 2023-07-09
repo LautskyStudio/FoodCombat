@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://bpr4wm5ery3w5"]
+[gd_scene load_steps=11 format=3 uid="uid://bpr4wm5ery3w5"]
 
+[ext_resource type="Script" path="res://scenes/play_screen.gd" id="1_q04vv"]
 [ext_resource type="Texture2D" uid="uid://c1cgechtmkqv0" path="res://assets/sozaino.site/syokuji28.png" id="1_u2ltd"]
+[ext_resource type="PackedScene" uid="uid://dpkj567j034ee" path="res://components/log_container.tscn" id="2_622vs"]
+[ext_resource type="PackedScene" uid="uid://yyqunreoj5xc" path="res://scenes/play_screen/slim_player_area.tscn" id="3_el8os"]
+[ext_resource type="Script" path="res://scenes/play_screen/game_state_machine.gd" id="3_w8vy1"]
+[ext_resource type="Script" path="res://scenes/play_screen/states/init.gd" id="4_3kvd7"]
+[ext_resource type="PackedScene" uid="uid://b0uujuxd61l2r" path="res://scenes/play_screen/player_area.tscn" id="4_g37ux"]
+[ext_resource type="Script" path="res://scenes/play_screen/states/running.gd" id="5_yecho"]
+[ext_resource type="Script" path="res://scenes/play_screen/states/pause.gd" id="6_jqbpf"]
+[ext_resource type="PackedScene" uid="uid://8qbrb1qilm5" path="res://scenes/play_screen/pause_menu.tscn" id="9_exsm3"]
 
 [node name="PlayScreen" type="Control"]
 layout_mode = 3
@@ -9,6 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_q04vv")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -21,6 +31,22 @@ texture = ExtResource("1_u2ltd")
 expand_mode = 2
 stretch_mode = 6
 
+[node name="GameStateMachine" type="Node" parent="."]
+script = ExtResource("3_w8vy1")
+initial_state = NodePath("Init")
+
+[node name="Init" type="Node" parent="GameStateMachine"]
+script = ExtResource("4_3kvd7")
+
+[node name="Running" type="Node" parent="GameStateMachine"]
+script = ExtResource("5_yecho")
+
+[node name="Pause" type="Node" parent="GameStateMachine"]
+script = ExtResource("6_jqbpf")
+
+[node name="End" type="Node" parent="GameStateMachine"]
+script = ExtResource("6_jqbpf")
+
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="HSplitContainer" type="HSplitContainer" parent="HUD"]
@@ -30,11 +56,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Control" type="Control" parent="HUD/HSplitContainer"]
+[node name="GameArea" type="Control" parent="HUD/HSplitContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="LeftPlayerContainer" type="VBoxContainer" parent="HUD/HSplitContainer/Control"]
+[node name="LeftPlayerContainer" type="PanelContainer" parent="HUD/HSplitContainer/GameArea"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -45,26 +71,47 @@ offset_bottom = 20.0
 grow_vertical = 2
 size_flags_horizontal = 0
 
-[node name="Label" type="Label" parent="HUD/HSplitContainer/Control/LeftPlayerContainer"]
+[node name="SlimPlayerArea1" parent="HUD/HSplitContainer/GameArea/LeftPlayerContainer" instance=ExtResource("3_el8os")]
+unique_name_in_owner = true
 layout_mode = 2
-text = "left"
+player_name = "玩家 3"
 
-[node name="TopPlayerContainer" type="HBoxContainer" parent="HUD/HSplitContainer/Control"]
+[node name="TopPlayerContainer" type="HBoxContainer" parent="HUD/HSplitContainer/GameArea"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 40.0
+offset_left = -31.0
+offset_right = 31.0
+offset_bottom = 176.0
 grow_horizontal = 2
-theme_override_constants/separation = 16
+theme_override_constants/separation = 8
 
-[node name="top" type="Label" parent="HUD/HSplitContainer/Control/TopPlayerContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="HUD/HSplitContainer/GameArea/TopPlayerContainer"]
 layout_mode = 2
-text = "left"
 
-[node name="RightPlayerContainer" type="VBoxContainer" parent="HUD/HSplitContainer/Control"]
+[node name="SlimPlayerArea2" parent="HUD/HSplitContainer/GameArea/TopPlayerContainer/PanelContainer" instance=ExtResource("3_el8os")]
+unique_name_in_owner = true
+layout_mode = 2
+player_name = "玩家 4"
+
+[node name="PanelContainer2" type="PanelContainer" parent="HUD/HSplitContainer/GameArea/TopPlayerContainer"]
+layout_mode = 2
+
+[node name="SlimPlayerArea3" parent="HUD/HSplitContainer/GameArea/TopPlayerContainer/PanelContainer2" instance=ExtResource("3_el8os")]
+unique_name_in_owner = true
+layout_mode = 2
+player_name = "玩家 1"
+
+[node name="PanelContainer3" type="PanelContainer" parent="HUD/HSplitContainer/GameArea/TopPlayerContainer"]
+layout_mode = 2
+
+[node name="SlimPlayerArea4" parent="HUD/HSplitContainer/GameArea/TopPlayerContainer/PanelContainer3" instance=ExtResource("3_el8os")]
+unique_name_in_owner = true
+layout_mode = 2
+player_name = "玩家 5"
+
+[node name="RightPlayerContainer" type="PanelContainer" parent="HUD/HSplitContainer/GameArea"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -77,11 +124,12 @@ offset_bottom = 20.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="right" type="Label" parent="HUD/HSplitContainer/Control/RightPlayerContainer"]
+[node name="SlimPlayerArea5" parent="HUD/HSplitContainer/GameArea/RightPlayerContainer" instance=ExtResource("3_el8os")]
+unique_name_in_owner = true
 layout_mode = 2
-text = "left"
+player_name = "玩家 2"
 
-[node name="PublicCardDeckContainer" type="HBoxContainer" parent="HUD/HSplitContainer/Control"]
+[node name="CenterContainer" type="PanelContainer" parent="HUD/HSplitContainer/GameArea"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -95,12 +143,12 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="deck" type="Label" parent="HUD/HSplitContainer/Control/PublicCardDeckContainer"]
+[node name="DeckLabel" type="Label" parent="HUD/HSplitContainer/GameArea/CenterContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "left"
+text = "游戏区域"
 
-[node name="BottomPlayerContainer" type="VBoxContainer" parent="HUD/HSplitContainer/Control"]
+[node name="BottomPlayerContainer" type="PanelContainer" parent="HUD/HSplitContainer/GameArea"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -113,10 +161,63 @@ offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="bottom" type="Label" parent="HUD/HSplitContainer/Control/BottomPlayerContainer"]
+[node name="PlayerArea" parent="HUD/HSplitContainer/GameArea/BottomPlayerContainer" instance=ExtResource("4_g37ux")]
 layout_mode = 2
-text = "left"
 
-[node name="LogContainer" type="PanelContainer" parent="HUD/HSplitContainer"]
-custom_minimum_size = Vector2(256, 0)
+[node name="PublicCardDeckContainer" type="PanelContainer" parent="HUD/HSplitContainer/GameArea"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/HSplitContainer/GameArea/PublicCardDeckContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/HSplitContainer/GameArea/PublicCardDeckContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HUD/HSplitContainer/GameArea/PublicCardDeckContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "公共牌堆"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="HUD/HSplitContainer/GameArea/PublicCardDeckContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="Label" type="Label" parent="HUD/HSplitContainer/GameArea/PublicCardDeckContainer/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "食材卡"
+
+[node name="MaterialCardCountLabel" type="Label" parent="HUD/HSplitContainer/GameArea/PublicCardDeckContainer/MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "60"
+
+[node name="Label3" type="Label" parent="HUD/HSplitContainer/GameArea/PublicCardDeckContainer/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "客人卡"
+
+[node name="CustomerCardCountLabel" type="Label" parent="HUD/HSplitContainer/GameArea/PublicCardDeckContainer/MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "20"
+
+[node name="Label5" type="Label" parent="HUD/HSplitContainer/GameArea/PublicCardDeckContainer/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "装扮卡"
+
+[node name="DecorationCardCountLabel" type="Label" parent="HUD/HSplitContainer/GameArea/PublicCardDeckContainer/MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "20"
+
+[node name="PauseMenu" parent="HUD/HSplitContainer/GameArea" instance=ExtResource("9_exsm3")]
+unique_name_in_owner = true
+
+[node name="LogContainer" parent="HUD/HSplitContainer" instance=ExtResource("2_622vs")]
 layout_mode = 2

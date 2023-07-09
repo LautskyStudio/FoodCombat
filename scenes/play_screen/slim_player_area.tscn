@@ -1,0 +1,80 @@
+[gd_scene load_steps=2 format=3 uid="uid://yyqunreoj5xc"]
+
+[ext_resource type="Script" path="res://scenes/play_screen/slim_player_area.gd" id="1_obxim"]
+
+[node name="SlimPlayerArea" type="VBoxContainer"]
+script = ExtResource("1_obxim")
+
+[node name="PlayerNameLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "玩家"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 2
+columns = 2
+
+[node name="Label5" type="Label" parent="GridContainer"]
+layout_mode = 2
+tooltip_text = "店铺卡、装扮卡（最多同时装备三张，每种类型限一张）"
+mouse_filter = 1
+text = "手牌"
+
+[node name="HandCardNumberLabel" type="Label" parent="GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "店铺卡、装扮卡（最多同时装备三张，每种类型限一张）"
+mouse_filter = 1
+text = "0"
+
+[node name="Label4" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "货币"
+
+[node name="CoinNumberLabel" type="Label" parent="GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "店铺卡、装扮卡（最多同时装备三张，每种类型限一张）"
+mouse_filter = 1
+text = "0"
+
+[node name="Label" type="Label" parent="GridContainer"]
+layout_mode = 2
+tooltip_text = "店铺卡、装扮卡（最多同时装备三张，每种类型限一张）"
+mouse_filter = 1
+text = "店铺区"
+
+[node name="ShopCardArea" type="HBoxContainer" parent="GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="GridContainer/ShopCardArea"]
+layout_mode = 2
+text = "标准店面"
+
+[node name="Label2" type="Label" parent="GridContainer/ShopCardArea"]
+layout_mode = 2
+text = "猫耳少女"
+
+[node name="Label2" type="Label" parent="GridContainer"]
+layout_mode = 2
+tooltip_text = "店铺卡、装扮卡（最多同时装备三张，每种类型限一张）"
+mouse_filter = 1
+text = "等候区"
+
+[node name="WaitingArea" type="HBoxContainer" parent="GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="GridContainer"]
+layout_mode = 2
+tooltip_text = "店铺卡、装扮卡（最多同时装备三张，每种类型限一张）"
+mouse_filter = 1
+text = "用餐区"
+
+[node name="EatingArea" type="HBoxContainer" parent="GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "店铺卡、装扮卡（最多同时装备三张，每种类型限一张）"
