@@ -31,8 +31,6 @@ func _ready() -> void:
 	%TitleLabel.text = title
 	%DescriptionLabel.text = description
 
-	$SelectButton.connect("pressed", _on_select_button_pressed)
-
 
 func _on_select_button_pressed() -> void:
 	card_selected.emit(self)

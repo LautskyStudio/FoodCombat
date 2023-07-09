@@ -107,3 +107,6 @@ custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "开 始 游 戏"
+
+[connection signal="value_changed" from="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/GridContainer/HBoxContainer/PlayerNumberSlider" to="." method="_on_player_number_slider_value_changed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
