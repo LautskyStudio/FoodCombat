@@ -1,0 +1,122 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpr4wm5ery3w5"]
+
+[ext_resource type="Texture2D" uid="uid://c1cgechtmkqv0" path="res://assets/sozaino.site/syokuji28.png" id="1_u2ltd"]
+
+[node name="PlayScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_u2ltd")
+expand_mode = 2
+stretch_mode = 6
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="HSplitContainer" type="HSplitContainer" parent="HUD"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="HUD/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LeftPlayerContainer" type="VBoxContainer" parent="HUD/HSplitContainer/Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="HUD/HSplitContainer/Control/LeftPlayerContainer"]
+layout_mode = 2
+text = "left"
+
+[node name="TopPlayerContainer" type="HBoxContainer" parent="HUD/HSplitContainer/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/separation = 16
+
+[node name="top" type="Label" parent="HUD/HSplitContainer/Control/TopPlayerContainer"]
+layout_mode = 2
+text = "left"
+
+[node name="RightPlayerContainer" type="VBoxContainer" parent="HUD/HSplitContainer/Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="right" type="Label" parent="HUD/HSplitContainer/Control/RightPlayerContainer"]
+layout_mode = 2
+text = "left"
+
+[node name="PublicCardDeckContainer" type="HBoxContainer" parent="HUD/HSplitContainer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="deck" type="Label" parent="HUD/HSplitContainer/Control/PublicCardDeckContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "left"
+
+[node name="BottomPlayerContainer" type="VBoxContainer" parent="HUD/HSplitContainer/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="bottom" type="Label" parent="HUD/HSplitContainer/Control/BottomPlayerContainer"]
+layout_mode = 2
+text = "left"
+
+[node name="LogContainer" type="PanelContainer" parent="HUD/HSplitContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
