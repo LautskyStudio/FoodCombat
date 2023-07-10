@@ -17,4 +17,4 @@ We do not waive the copyright of our distributed materials; while you may edit a
 
 × Uses in activities that are offensive to public order and morals, or in illegal or illicit websites
 
-× Trademark registration　
+× Trademark registration

@@ -84,7 +84,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "2"
+text = "4"
 editable = false
 
 [node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/GridContainer"]

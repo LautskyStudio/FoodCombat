@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 
 Settings="*res://autoloads/settings.gd"
 Log="*res://autoloads/log.gd"
+Events="*res://models/event/events.gd"
 
 [display]
 
