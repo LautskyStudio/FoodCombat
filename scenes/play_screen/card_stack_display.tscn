@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxe1wq7xlxu00"]
+
+[ext_resource type="Script" path="res://scenes/play_screen/card_stack_display.gd" id="1_y46ti"]
+
+[node name="CardStackDisplay" type="GridContainer"]
+columns = 2
+script = ExtResource("1_y46ti")
+
+[node name="FoodMateralCardLabel" type="Label" parent="."]
+layout_mode = 2
+tooltip_text = "高级的食材往往只需要最简单的烹饪方法。"
+mouse_filter = 1
+text = "食材卡"
+
+[node name="FoodMaterialCardCountLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "60"
+
+[node name="CustomerCardLabel" type="Label" parent="."]
+layout_mode = 2
+tooltip_text = "总能遇到各种各样的客人。"
+mouse_filter = 1
+text = "客人卡"
+
+[node name="CustomerCardCountLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "20"
+
+[node name="DecorationCardLabel" type="Label" parent="."]
+layout_mode = 2
+tooltip_text = "有谁不喜欢漂亮的装扮呢。"
+mouse_filter = 1
+text = "装扮卡"
+
+[node name="DecorationCardCountLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "20"

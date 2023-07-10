@@ -1,2 +1,2 @@
-extends Node
+extends State
 class_name PlayerState

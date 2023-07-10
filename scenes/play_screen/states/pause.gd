@@ -15,10 +15,12 @@ func enter(args := {}) -> void:
 
 	%PauseMenu.popup_centered()
 	get_tree().paused = true
+	Log.push("游戏已暂停。")
 
 
 func exit() -> void:
 	get_tree().paused = false
+	Log.push("游戏已恢复。")
 
 
 func _exit_tree() -> void:

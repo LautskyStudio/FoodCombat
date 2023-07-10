@@ -2,7 +2,9 @@ extends GameState
 
 
 func enter(_args := {}) -> void:
-	pass
+	if game.turn == 0:
+		Log.push("游戏阶段")
+		game.begin_next_turn()
 
 
 func handle_input(event: InputEvent) -> void:

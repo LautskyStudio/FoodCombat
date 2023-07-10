@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bpr4wm5ery3w5"]
+[gd_scene load_steps=14 format=3 uid="uid://bpr4wm5ery3w5"]
 
 [ext_resource type="Script" path="res://scenes/play_screen.gd" id="1_q04vv"]
 [ext_resource type="Texture2D" uid="uid://c1cgechtmkqv0" path="res://assets/sozaino.site/syokuji28.png" id="1_u2ltd"]
@@ -11,7 +11,8 @@
 [ext_resource type="Script" path="res://scenes/play_screen/states/pause.gd" id="6_jqbpf"]
 [ext_resource type="Script" path="res://scenes/play_screen/states/end.gd" id="7_7qh7p"]
 [ext_resource type="PackedScene" uid="uid://8qbrb1qilm5" path="res://scenes/play_screen/pause_menu.tscn" id="9_exsm3"]
-[ext_resource type="Script" path="res://models/player/player.gd" id="12_ps4d2"]
+[ext_resource type="PackedScene" uid="uid://cxe1wq7xlxu00" path="res://scenes/play_screen/card_stack_display.tscn" id="10_unaep"]
+[ext_resource type="PackedScene" uid="uid://cxn6gfn8y35ul" path="res://models/player/player.tscn" id="12_dpxem"]
 
 [node name="PlayScreen" type="Control"]
 layout_mode = 3
@@ -66,10 +67,10 @@ size_flags_horizontal = 3
 [node name="PauseButton" type="Button" parent="HUD/HSplitContainer/GameArea"]
 unique_name_in_owner = true
 layout_mode = 1
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 80.0
-offset_bottom = 39.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 88.0
+offset_bottom = 47.0
 text = "暂停菜单"
 
 [node name="LeftPlayerContainer" type="PanelContainer" parent="HUD/HSplitContainer/GameArea"]
@@ -77,9 +78,10 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = -20.0
-offset_right = 40.0
-offset_bottom = 20.0
+offset_left = 16.0
+offset_top = -88.0
+offset_right = 78.0
+offset_bottom = 88.0
 grow_vertical = 2
 size_flags_horizontal = 0
 
@@ -93,9 +95,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -31.0
-offset_right = 31.0
-offset_bottom = 176.0
+offset_left = -101.0
+offset_top = 16.0
+offset_right = 101.0
+offset_bottom = 192.0
 grow_horizontal = 2
 theme_override_constants/separation = 8
 
@@ -181,9 +184,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -40.0
-offset_right = 20.0
+offset_left = -243.0
+offset_top = -102.0
+offset_right = 243.0
+offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -197,7 +201,8 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -87.0
-offset_bottom = 132.0
+offset_top = 16.0
+offset_bottom = 148.0
 grow_horizontal = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/HSplitContainer/GameArea/PublicCardDeckContainer"]
@@ -215,36 +220,69 @@ layout_mode = 2
 text = "公共牌堆"
 horizontal_alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="HUD/HSplitContainer/GameArea/PublicCardDeckContainer/MarginContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="HUD/HSplitContainer/GameArea/PublicCardDeckContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/HSplitContainer/GameArea/PublicCardDeckContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/HSplitContainer/GameArea/PublicCardDeckContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HUD/HSplitContainer/GameArea/PublicCardDeckContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "剩余"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RemainingCardStackDisplay" parent="HUD/HSplitContainer/GameArea/PublicCardDeckContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource("10_unaep")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="HUD/HSplitContainer/GameArea/PublicCardDeckContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HUD/HSplitContainer/GameArea/PublicCardDeckContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HUD/HSplitContainer/GameArea/PublicCardDeckContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "弃牌"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DiscardedCardStackDisplay" parent="HUD/HSplitContainer/GameArea/PublicCardDeckContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2" instance=ExtResource("10_unaep")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="OptionsContainer" type="Panel" parent="HUD/HSplitContainer/GameArea"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -100.0
+offset_right = 208.0
+offset_bottom = -16.0
+grow_vertical = 0
+
+[node name="GridContainer" type="GridContainer" parent="HUD/HSplitContainer/GameArea/OptionsContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 columns = 2
 
-[node name="Label" type="Label" parent="HUD/HSplitContainer/GameArea/PublicCardDeckContainer/MarginContainer/VBoxContainer/GridContainer"]
+[node name="Label" type="Label" parent="HUD/HSplitContainer/GameArea/OptionsContainer/GridContainer"]
 layout_mode = 2
-text = "食材卡"
+text = "查看其他玩家的手牌"
 
-[node name="MaterialCardCountLabel" type="Label" parent="HUD/HSplitContainer/GameArea/PublicCardDeckContainer/MarginContainer/VBoxContainer/GridContainer"]
-unique_name_in_owner = true
+[node name="CheckBox" type="CheckBox" parent="HUD/HSplitContainer/GameArea/OptionsContainer/GridContainer"]
 layout_mode = 2
-text = "60"
-
-[node name="Label3" type="Label" parent="HUD/HSplitContainer/GameArea/PublicCardDeckContainer/MarginContainer/VBoxContainer/GridContainer"]
-layout_mode = 2
-text = "客人卡"
-
-[node name="CustomerCardCountLabel" type="Label" parent="HUD/HSplitContainer/GameArea/PublicCardDeckContainer/MarginContainer/VBoxContainer/GridContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "20"
-
-[node name="Label5" type="Label" parent="HUD/HSplitContainer/GameArea/PublicCardDeckContainer/MarginContainer/VBoxContainer/GridContainer"]
-layout_mode = 2
-text = "装扮卡"
-
-[node name="DecorationCardCountLabel" type="Label" parent="HUD/HSplitContainer/GameArea/PublicCardDeckContainer/MarginContainer/VBoxContainer/GridContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "20"
+disabled = true
+button_pressed = true
 
 [node name="PauseMenu" parent="HUD/HSplitContainer/GameArea" instance=ExtResource("9_exsm3")]
 unique_name_in_owner = true
@@ -256,32 +294,16 @@ layout_mode = 2
 [node name="Players" type="Node" parent="."]
 unique_name_in_owner = true
 
-[node name="Player0" type="Node" parent="Players"]
-script = ExtResource("12_ps4d2")
+[node name="Player0" parent="Players" instance=ExtResource("12_dpxem")]
 
-[node name="Player1" type="Node" parent="Players"]
-script = ExtResource("12_ps4d2")
-player_name = "玩家1"
-player_index = 1
+[node name="Player1" parent="Players" instance=ExtResource("12_dpxem")]
 
-[node name="Player2" type="Node" parent="Players"]
-script = ExtResource("12_ps4d2")
-player_name = "玩家2"
-player_index = 2
+[node name="Player2" parent="Players" instance=ExtResource("12_dpxem")]
 
-[node name="Player3" type="Node" parent="Players"]
-script = ExtResource("12_ps4d2")
-player_name = "玩家3"
-player_index = 3
+[node name="Player3" parent="Players" instance=ExtResource("12_dpxem")]
 
-[node name="Player4" type="Node" parent="Players"]
-script = ExtResource("12_ps4d2")
-player_name = "玩家4"
-player_index = 4
+[node name="Player4" parent="Players" instance=ExtResource("12_dpxem")]
 
-[node name="Player5" type="Node" parent="Players"]
-script = ExtResource("12_ps4d2")
-player_name = "玩家5"
-player_index = 5
+[node name="Player5" parent="Players" instance=ExtResource("12_dpxem")]
 
 [connection signal="pressed" from="HUD/HSplitContainer/GameArea/PauseButton" to="StateMachine/Running" method="_on_pause_button_pressed"]
