@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bpr4wm5ery3w5"]
+[gd_scene load_steps=15 format=3 uid="uid://bpr4wm5ery3w5"]
 
 [ext_resource type="Script" path="res://scenes/play_screen.gd" id="1_q04vv"]
 [ext_resource type="Texture2D" uid="uid://c1cgechtmkqv0" path="res://assets/sozaino.site/syokuji28.png" id="1_u2ltd"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://scenes/play_screen/states/end.gd" id="7_7qh7p"]
 [ext_resource type="PackedScene" uid="uid://8qbrb1qilm5" path="res://scenes/play_screen/pause_menu.tscn" id="9_exsm3"]
 [ext_resource type="PackedScene" uid="uid://cxe1wq7xlxu00" path="res://scenes/play_screen/card_stack_display.tscn" id="10_unaep"]
+[ext_resource type="PackedScene" uid="uid://dmn8xlkjj0iww" path="res://scenes/play_screen/card_deck_popup.tscn" id="11_4hglu"]
 [ext_resource type="PackedScene" uid="uid://cxn6gfn8y35ul" path="res://models/player/player.tscn" id="12_dpxem"]
 
 [node name="PlayScreen" type="Control"]
@@ -255,6 +256,15 @@ vertical_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 
+[node name="ShowCardDeckButton" type="Button" parent="HUD/HSplitContainer/GameArea/PublicCardDeckContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "显示牌堆"
+
+[node name="CardDeckPopup" parent="HUD/HSplitContainer/GameArea/PublicCardDeckContainer/MarginContainer/VBoxContainer/ShowCardDeckButton" instance=ExtResource("11_4hglu")]
+unique_name_in_owner = true
+visible = false
+
 [node name="OptionsContainer" type="PanelContainer" parent="HUD/HSplitContainer/GameArea"]
 layout_mode = 1
 anchors_preset = 2
@@ -279,7 +289,7 @@ vertical_alignment = 1
 layout_mode = 2
 disabled = true
 button_pressed = true
-text = "查看其他玩家的手牌"
+text = "观察者视角"
 
 [node name="CheckBox2" type="CheckBox" parent="HUD/HSplitContainer/GameArea/OptionsContainer/VBoxContainer"]
 layout_mode = 2
@@ -313,3 +323,4 @@ player_index = 4
 player_index = 5
 
 [connection signal="pressed" from="HUD/HSplitContainer/GameArea/PauseButton" to="StateMachine/Running" method="_on_pause_button_pressed"]
+[connection signal="pressed" from="HUD/HSplitContainer/GameArea/PublicCardDeckContainer/MarginContainer/VBoxContainer/ShowCardDeckButton" to="." method="_on_show_card_deck_button_pressed"]

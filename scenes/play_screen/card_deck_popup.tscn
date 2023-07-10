@@ -1,0 +1,115 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmn8xlkjj0iww"]
+
+[ext_resource type="Script" path="res://scenes/play_screen/card_deck_popup.gd" id="1_lx2tf"]
+
+[node name="CardDeckPopup" type="Popup"]
+size = Vector2i(600, 400)
+visible = true
+borderless = false
+script = ExtResource("1_lx2tf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
+layout_mode = 2
+columns = 7
+
+[node name="Label1" type="Label" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "食材卡"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label6" type="Label" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "客人卡"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label7" type="Label" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label8" type="Label" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "装扮卡"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RemainingLabel" type="Label" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "剩余"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="RemainingFoodMaterialsContainer" type="HFlowContainer" parent="VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="RemainingCostomersContainer" type="HFlowContainer" parent="VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+
+[node name="VSeparator3" type="VSeparator" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="RemainingDecorationsContainer" type="HFlowContainer" parent="VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+
+[node name="DiscardedLabel" type="Label" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "弃牌"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator4" type="VSeparator" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="DiscardedFoodMaterialsContainer" type="HFlowContainer" parent="VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+
+[node name="VSeparator5" type="VSeparator" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="DiscardedCostomersContainer" type="HFlowContainer" parent="VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+
+[node name="VSeparator6" type="VSeparator" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="DiscardedDecorationsContainer" type="HFlowContainer" parent="VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2

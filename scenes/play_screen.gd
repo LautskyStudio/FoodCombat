@@ -21,10 +21,10 @@ var discarded_cards := {
 
 
 func _ready() -> void:
+	_init_players()
+
 	if not Engine.is_editor_hint():
 		Log.push("创建游戏界面。")
-
-	_init_players()
 
 
 func _init_players() -> void:
@@ -53,3 +53,9 @@ func _update_card_stack_display(display: CardStackDisplay, dict: Dictionary) -> 
 		len(dict['customers']),
 		len(dict['decorations'])
 	)
+
+
+func _on_show_card_deck_button_pressed() -> void:
+	var popup: CardDeckPopup = %CardDeckPopup
+	popup.setup(remaining_cards, discarded_cards)
+	popup.popup_centered()

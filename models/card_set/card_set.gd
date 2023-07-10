@@ -22,3 +22,7 @@ func _init() -> void:
 		if decoration is Decoration:
 			for i in range(randi_range(1, 2)):
 				decorations.append(decoration.duplicate())
+
+	food_materials.shuffle()
+	customers.shuffle()
+	decorations.shuffle()
