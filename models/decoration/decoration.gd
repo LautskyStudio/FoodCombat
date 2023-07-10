@@ -9,7 +9,7 @@ class_name Decoration
 var installed_turn := 0
 
 
-func _init(p_title: String, p_description: String, p_kind: String, p_duration: int, p_effect: Callable) -> void:
+func _init(p_title := "", p_description := "", p_kind := "", p_duration := 0, p_effect := func(): pass) -> void:
 	title = p_title
 	description = p_description
 	kind = p_kind

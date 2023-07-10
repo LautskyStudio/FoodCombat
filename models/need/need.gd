@@ -8,7 +8,7 @@ class_name Need
 @export var reward := 0
 
 
-func _init(p_name: String, p_description: String, p_filter: Callable, p_reward: int) -> void:
+func _init(p_name := "", p_description := "", p_filter := func(): pass, p_reward := 0) -> void:
 	name = p_name
 	description = p_description
 	filter = p_filter

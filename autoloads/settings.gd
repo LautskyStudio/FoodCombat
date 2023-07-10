@@ -2,4 +2,4 @@
 extends Node
 
 
-var player_number := 6
+var player_number := 3

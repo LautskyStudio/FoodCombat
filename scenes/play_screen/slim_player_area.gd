@@ -4,6 +4,7 @@ extends VBoxContainer
 @export var player_path := NodePath()
 var player := Player.new()
 
+
 func _ready() -> void:
 	if player_path:
 		if player:
@@ -16,3 +17,8 @@ func _ready() -> void:
 		show()
 	else:
 		hide()
+
+
+func _process(_delta: float) -> void:
+	%CoinNumberLabel.text = str(player.coins)
+

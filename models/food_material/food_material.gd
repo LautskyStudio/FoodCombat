@@ -2,10 +2,10 @@ extends BaseCard
 class_name FoodMaterial
 
 
-@export var name := ""
 @export var category := ""
 
 
-func _init(p_name: String, p_category: String) -> void:
-	name = p_name
+func _init(p_title := "", p_description := "", p_category := "") -> void:
+	title = p_title
+	description = p_description
 	category = p_category

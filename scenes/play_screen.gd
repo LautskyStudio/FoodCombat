@@ -24,6 +24,10 @@ func _ready() -> void:
 	if not Engine.is_editor_hint():
 		Log.push("创建游戏界面。")
 
+	_init_players()
+
+
+func _init_players() -> void:
 	for player in %Players.get_children():
 		if player is Player:
 			players.push_back(player)

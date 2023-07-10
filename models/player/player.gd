@@ -6,7 +6,7 @@ class_name Player
 @export var player_index := 0
 
 
-var coin := 0
+var coins := 0
 
 var hand_cards: Array[Card] = []
 var hand_cards_dict := {}
