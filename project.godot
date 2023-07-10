@@ -22,7 +22,10 @@ config/icon="res://icon.svg"
 
 Settings="*res://autoloads/settings.gd"
 Log="*res://autoloads/log.gd"
+FoodMaterials="*res://models/food_material/food_materials.gd"
+Decorations="*res://models/decoration/decorations.gd"
 Events="*res://models/event/events.gd"
+Customers="*res://models/customer/customers.gd"
 
 [display]
 
