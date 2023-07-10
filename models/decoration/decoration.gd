@@ -1,4 +1,4 @@
-extends BaseCard
+extends Card
 class_name Decoration
 
 

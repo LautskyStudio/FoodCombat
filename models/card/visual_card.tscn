@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://basr5mxkjqjlv"]
 
-[ext_resource type="Script" path="res://models/card/card.gd" id="1_n4rgb"]
+[ext_resource type="Script" path="res://models/card/visual_card.gd" id="1_n4rgb"]
 
 [node name="Card" type="VBoxContainer"]
 anchors_preset = 10
