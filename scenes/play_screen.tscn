@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c1cgechtmkqv0" path="res://assets/sozaino.site/syokuji28.png" id="1_u2ltd"]
 [ext_resource type="PackedScene" uid="uid://dpkj567j034ee" path="res://components/log_container.tscn" id="2_622vs"]
 [ext_resource type="PackedScene" uid="uid://yyqunreoj5xc" path="res://scenes/play_screen/slim_player_area.tscn" id="3_el8os"]
-[ext_resource type="Script" path="res://models/base/state_machine.gd" id="3_qevl1"]
+[ext_resource type="Script" path="res://models/state_machine/state_machine.gd" id="3_qevl1"]
 [ext_resource type="Script" path="res://scenes/play_screen/states/init.gd" id="4_3kvd7"]
 [ext_resource type="PackedScene" uid="uid://b0uujuxd61l2r" path="res://scenes/play_screen/player_area.tscn" id="4_g37ux"]
 [ext_resource type="Script" path="res://scenes/play_screen/states/running.gd" id="5_yecho"]
