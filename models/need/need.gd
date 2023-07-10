@@ -13,3 +13,8 @@ func _init(p_name := "", p_description := "", p_filter := func(): pass, p_reward
 	description = p_description
 	filter = p_filter
 	reward = p_reward
+
+
+func _set_reward(p_reward: int) -> Need:
+	reward = p_reward
+	return self

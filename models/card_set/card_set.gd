@@ -15,7 +15,7 @@ func _init() -> void:
 
 	for customer in Customers.get_property_list().map(func(x): return Customers.get(x.name)):
 		if customer is Customer:
-			for i in range(randi_range(1, 3)):
+			for i in range(randi_range(6, 8)):
 				customers.append(customer.duplicate())
 
 	for decoration in Decorations.get_property_list().map(func(x): return Decorations.get(x.name)):

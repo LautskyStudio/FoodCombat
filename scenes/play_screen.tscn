@@ -255,34 +255,35 @@ vertical_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="OptionsContainer" type="Panel" parent="HUD/HSplitContainer/GameArea"]
+[node name="OptionsContainer" type="PanelContainer" parent="HUD/HSplitContainer/GameArea"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 16.0
-offset_top = -100.0
-offset_right = 208.0
+offset_top = -111.0
+offset_right = 188.0
 offset_bottom = -16.0
 grow_vertical = 0
 
-[node name="GridContainer" type="GridContainer" parent="HUD/HSplitContainer/GameArea/OptionsContainer"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-columns = 2
-
-[node name="Label" type="Label" parent="HUD/HSplitContainer/GameArea/OptionsContainer/GridContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/HSplitContainer/GameArea/OptionsContainer"]
 layout_mode = 2
-text = "查看其他玩家的手牌"
 
-[node name="CheckBox" type="CheckBox" parent="HUD/HSplitContainer/GameArea/OptionsContainer/GridContainer"]
+[node name="Label" type="Label" parent="HUD/HSplitContainer/GameArea/OptionsContainer/VBoxContainer"]
+layout_mode = 2
+text = "调试选项"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CheckBox" type="CheckBox" parent="HUD/HSplitContainer/GameArea/OptionsContainer/VBoxContainer"]
 layout_mode = 2
 disabled = true
 button_pressed = true
+text = "查看其他玩家的手牌"
+
+[node name="CheckBox2" type="CheckBox" parent="HUD/HSplitContainer/GameArea/OptionsContainer/VBoxContainer"]
+layout_mode = 2
+text = "AI 跳过全部客人"
 
 [node name="PauseMenu" parent="HUD/HSplitContainer/GameArea" instance=ExtResource("9_exsm3")]
 unique_name_in_owner = true
