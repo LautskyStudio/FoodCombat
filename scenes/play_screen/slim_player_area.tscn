@@ -50,14 +50,6 @@ unique_name_in_owner = true
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="GridContainer/ShopCardArea"]
-layout_mode = 2
-text = "标准店面"
-
-[node name="Label2" type="Label" parent="GridContainer/ShopCardArea"]
-layout_mode = 2
-text = "猫耳少女"
-
 [node name="Label2" type="Label" parent="GridContainer"]
 layout_mode = 2
 tooltip_text = "店铺卡、装扮卡（最多同时装备三张，每种类型限一张）"

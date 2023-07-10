@@ -9,9 +9,13 @@ func _init() -> void:
 	process_mode = Node.PROCESS_MODE_DISABLED
 
 
-func _enter(_args := {}) -> void:
+func enter(_args := {}) -> void:
 	pass
 
 
-func _exit() -> void:
+func exit() -> void:
+	pass
+
+
+func handle_input(_event: InputEvent) -> void:
 	pass
