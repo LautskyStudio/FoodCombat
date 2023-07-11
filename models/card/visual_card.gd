@@ -3,11 +3,11 @@ extends VBoxContainer
 class_name VisualCard
 
 
-signal card_selected(card: Card)
+var card: Card
 
+@export var selectable: bool = true
 
-@export var title := ""
-@export_multiline var description := ""
+var _is_selected := false
 
 @export var is_selected: bool:
 	set(value):
@@ -16,21 +16,10 @@ signal card_selected(card: Card)
 	get:
 		return _is_selected
 
-@export var is_highlighted: bool:
-	set(value):
-		_is_highlighted = value
-		%IsHighlightedCheckBox.button_pressed = value
-	get:
-		return _is_highlighted
-
-var _is_selected := false
-var _is_highlighted := false
-
 
 func _ready() -> void:
-	%TitleLabel.text = title
-	%DescriptionLabel.text = description
+	if card:
+		%TitleLabel.text = card.title
+		%DescriptionLabel.text = card.description
 
-
-func _on_select_button_pressed() -> void:
-	card_selected.emit(self)
+	%SelectButton.visible = selectable

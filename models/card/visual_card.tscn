@@ -5,46 +5,21 @@
 [node name="VisualCard" type="VBoxContainer"]
 anchors_preset = 10
 anchor_right = 1.0
-offset_right = -1440.0
-offset_bottom = 270.0
+offset_right = -1476.0
+offset_bottom = 225.0
 grow_horizontal = 2
 script = ExtResource("1_n4rgb")
-title = "示例卡片"
-description = "蕴含着美食力量的神秘卡片。"
+selectable = null
 
-[node name="GridContainer" type="HBoxContainer" parent="."]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="GridContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "选中"
-
-[node name="IsSelectedCheckBox" type="CheckBox" parent="GridContainer/HBoxContainer"]
+[node name="SelectButton" type="CheckBox" parent="."]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
-disabled = true
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="GridContainer/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "高亮"
-
-[node name="IsHighlightedCheckBox" type="CheckBox" parent="GridContainer/HBoxContainer2"]
-unique_name_in_owner = true
-layout_mode = 2
-disabled = true
+size_flags_horizontal = 4
+text = "选择"
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-custom_minimum_size = Vector2(160, 240)
+custom_minimum_size = Vector2(120, 160)
 layout_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer"]
@@ -66,12 +41,3 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "蕴含着美食力量的神秘卡片。"
 autowrap_mode = 3
-
-[node name="SelectButton" type="Button" parent="."]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(60, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-text = "选择"
-
-[connection signal="pressed" from="SelectButton" to="." method="_on_select_button_pressed"]

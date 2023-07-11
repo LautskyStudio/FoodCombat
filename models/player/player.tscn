@@ -1,8 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://cxn6gfn8y35ul"]
+[gd_scene load_steps=15 format=3 uid="uid://cxn6gfn8y35ul"]
 
 [ext_resource type="Script" path="res://models/player/player.gd" id="1_qqapd"]
 [ext_resource type="Script" path="res://models/state_machine/state_machine.gd" id="2_11yvc"]
 [ext_resource type="Script" path="res://models/player/states/init.gd" id="3_u6ee2"]
+[ext_resource type="Script" path="res://models/player/states/inactive.gd" id="4_jj8nr"]
+[ext_resource type="Script" path="res://models/player/states/idle.gd" id="5_nlvs4"]
+[ext_resource type="Script" path="res://models/player/states/step_1.gd" id="6_durqn"]
+[ext_resource type="Script" path="res://models/player/states/step_2.gd" id="7_rui2f"]
+[ext_resource type="Script" path="res://models/player/states/step_3.gd" id="8_68w7i"]
+[ext_resource type="Script" path="res://models/player/states/step_4.gd" id="9_6htyx"]
+[ext_resource type="Script" path="res://models/player/states/step_5.gd" id="10_tqogo"]
+[ext_resource type="Script" path="res://models/player/states/step_6.gd" id="11_oopmo"]
+[ext_resource type="Script" path="res://models/player/states/step_7.gd" id="12_h6b66"]
+[ext_resource type="Script" path="res://models/player/states/step_8.gd" id="13_7jvei"]
+[ext_resource type="Script" path="res://models/player/states/step_9.gd" id="14_oclpk"]
 
 [node name="Player" type="Node"]
 script = ExtResource("1_qqapd")
@@ -13,3 +24,38 @@ initial_state = NodePath("Init")
 
 [node name="Init" type="Node" parent="StateMachine"]
 script = ExtResource("3_u6ee2")
+
+[node name="Inactive" type="Node" parent="StateMachine"]
+script = ExtResource("4_jj8nr")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("5_nlvs4")
+
+[node name="Step1" type="Node" parent="StateMachine"]
+script = ExtResource("6_durqn")
+
+[node name="Step2" type="Node" parent="StateMachine"]
+script = ExtResource("7_rui2f")
+
+[node name="Step3" type="Node" parent="StateMachine"]
+script = ExtResource("8_68w7i")
+
+[node name="Step4" type="Node" parent="StateMachine"]
+script = ExtResource("9_6htyx")
+
+[node name="Step5" type="Node" parent="StateMachine"]
+script = ExtResource("10_tqogo")
+
+[node name="Step6" type="Node" parent="StateMachine"]
+script = ExtResource("11_oopmo")
+
+[node name="Step7" type="Node" parent="StateMachine"]
+script = ExtResource("12_h6b66")
+
+[node name="Step8" type="Node" parent="StateMachine"]
+script = ExtResource("13_7jvei")
+
+[node name="Step9" type="Node" parent="StateMachine"]
+script = ExtResource("14_oclpk")
+
+[connection signal="transitioned" from="StateMachine" to="." method="_on_state_machine_transitioned"]

@@ -10,13 +10,13 @@ var 金闪闪 = Customer.new(
 
 var 上班族 = Customer.new(
 	'上班族',
-	'',
+	'普普通通的上班族。',
 	[Needs.米饭巨无霸, Needs.煲仔饭],
 	[]
 )
 
 var 大学生 = Customer.new(
 	'大学生',
-	'正在节食减肥的大学生',
+	'正在节食减肥的大学生。',
 	[Needs.米饭, Needs.水果拼盘]
 )

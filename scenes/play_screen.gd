@@ -7,6 +7,7 @@ var turn := 0
 
 @onready var players: Array[Player] = []
 
+
 var remaining_cards := {
 	'food_materials': [] as Array[FoodMaterial],
 	'customers': [] as Array[Customer],
@@ -39,13 +40,9 @@ var discarded_decorations: Array[Decoration]:
 
 
 func _ready() -> void:
-	_init_players()
-
 	if not Engine.is_editor_hint():
 		Log.push("创建游戏界面。")
 
-
-func _init_players() -> void:
 	for player in %Players.get_children():
 		if player is Player:
 			players.push_back(player)
@@ -87,7 +84,7 @@ func get_customer_card() -> Customer:
 	return _get_card(remaining_customers, discarded_customers, "客人卡洗牌了。")
 
 
-func get_decoration_card() -> Customer:
+func get_decoration_card() -> Decoration:
 	return _get_card(remaining_decorations, discarded_decorations, "装扮卡洗牌了。")
 
 

@@ -6,7 +6,12 @@ signal transitioned(state_name: String, state: State)
 
 
 @export var initial_state := NodePath()
+
 @onready var state: State = get_node(initial_state)
+
+@onready var active_state_name: String:
+	get:
+		return state.name
 
 
 func _ready() -> void:
