@@ -15,6 +15,8 @@ signal food_materials_changed(cards: Array[FoodMaterial])
 
 @export var player_index := 0
 
+@onready var game: PlayScreen
+
 @onready var is_active: bool:
 	get:
 		return $StateMachine.state != $StateMachine/Inactive

@@ -45,6 +45,7 @@ func _ready() -> void:
 
 	for player in %Players.get_children():
 		if player is Player:
+			player.game = self
 			players.push_back(player)
 
 
@@ -102,4 +103,6 @@ func _on_player_0_state_changed(new_state: PlayerState, old_state: PlayerState) 
 		get_node("%" + old_state.name).hide()
 
 	if new_state.name.begins_with("Step"):
-		get_node("%" + new_state.name).show()
+		var view = get_node("%" + new_state.name)
+		view.state = new_state
+		view.show()

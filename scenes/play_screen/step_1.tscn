@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://cfwec6ywv14j3"]
+[gd_scene load_steps=2 format=3 uid="uid://cfwec6ywv14j3"]
+
+[ext_resource type="Script" path="res://scenes/play_screen/step_1.gd" id="1_3i7nh"]
 
 [node name="Step1" type="VBoxContainer"]
+script = ExtResource("1_3i7nh")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
@@ -37,3 +40,6 @@ text = "下个阶段"
 [node name="DrawnCardContainer" type="HBoxContainer" parent="HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/DrawButton" to="." method="_on_draw_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/NextStepButton" to="." method="_on_next_step_button_pressed"]

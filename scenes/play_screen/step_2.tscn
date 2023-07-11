@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://bmfnye5sbivpx"]
+[gd_scene load_steps=2 format=3 uid="uid://bmfnye5sbivpx"]
+
+[ext_resource type="Script" path="res://scenes/play_screen/step_2.gd" id="1_rre0r"]
 
 [node name="Step2" type="HBoxContainer"]
+script = ExtResource("1_rre0r")
