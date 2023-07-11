@@ -7,8 +7,6 @@ extends PlayerState
 signal card_drawn(card: FoodMaterial)
 
 
-var turn := 0
-
 var drawn_count := 0
 
 var max_drawn_count := 3
@@ -22,17 +20,14 @@ func _init() -> void:
 	description = "抽取食材卡"
 
 
-func enter(_args := {}) -> void:
-	player.is_finishing_turn_allowed = false
+func enter(args := {}) -> void:
+	super.enter(args)
 
-	if turn != player.game.turn:
-		_reset()
+	player.is_finishing_turn_allowed = false
 
 
 func _reset() -> void:
-	turn = player.game.turn
 	drawn_count = 0
-	player.is_finishing_turn_allowed = false
 	draw_card()
 
 

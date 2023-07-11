@@ -1,4 +1,4 @@
-extends Control
+extends BoxContainer
 
 
 @export var state_path := NodePath()
@@ -7,5 +7,10 @@ extends Control
 
 
 func _ready() -> void:
-	state.state_entered.connect(show)
-	state.state_exited.connect(hide)
+	if state:
+		state.state_entered.connect(func (): show(); _on_show())
+		state.state_exited.connect(hide)
+
+
+func _on_show() -> void:
+	pass

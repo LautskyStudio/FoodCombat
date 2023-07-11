@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bpr4wm5ery3w5"]
+[gd_scene load_steps=19 format=3 uid="uid://bpr4wm5ery3w5"]
 
 [ext_resource type="Script" path="res://scenes/play_screen.gd" id="1_q04vv"]
 [ext_resource type="Texture2D" uid="uid://c1cgechtmkqv0" path="res://assets/sozaino.site/syokuji28.png" id="1_u2ltd"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cfwec6ywv14j3" path="res://scenes/play_screen/step_1.tscn" id="11_trudk"]
 [ext_resource type="PackedScene" uid="uid://cxn6gfn8y35ul" path="res://models/player/player.tscn" id="12_dpxem"]
 [ext_resource type="PackedScene" uid="uid://bmfnye5sbivpx" path="res://scenes/play_screen/step_2.tscn" id="12_ypkra"]
+[ext_resource type="PackedScene" uid="uid://c1qp3clg4qov" path="res://scenes/play_screen/step_4.tscn" id="13_h6lxk"]
 
 [node name="PlayScreen" type="Control"]
 layout_mode = 3
@@ -193,21 +194,34 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="EndingPoster" parent="HUD/HSplitContainer/GameArea/CenterContainer" instance=ExtResource("10_wbmxn")]
+[node name="MarginContainer" type="MarginContainer" parent="HUD/HSplitContainer/GameArea/CenterContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="EndingPoster" parent="HUD/HSplitContainer/GameArea/CenterContainer/MarginContainer" instance=ExtResource("10_wbmxn")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Step1" parent="HUD/HSplitContainer/GameArea/CenterContainer" instance=ExtResource("11_trudk")]
+[node name="Step1" parent="HUD/HSplitContainer/GameArea/CenterContainer/MarginContainer" instance=ExtResource("11_trudk")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-state_path = NodePath("../../../../../Players/Player0/StateMachine/Step1")
+state_path = NodePath("../../../../../../Players/Player0/StateMachine/Step1")
 
-[node name="Step2" parent="HUD/HSplitContainer/GameArea/CenterContainer" instance=ExtResource("12_ypkra")]
+[node name="Step2" parent="HUD/HSplitContainer/GameArea/CenterContainer/MarginContainer" instance=ExtResource("12_ypkra")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-state_path = NodePath("../../../../../Players/Player0/StateMachine/Step2")
+state_path = NodePath("../../../../../../Players/Player0/StateMachine/Step2")
+
+[node name="Step4" parent="HUD/HSplitContainer/GameArea/CenterContainer/MarginContainer" instance=ExtResource("13_h6lxk")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+state_path = NodePath("../../../../../../Players/Player0/StateMachine/Step4")
 
 [node name="BottomPlayerContainer" type="PanelContainer" parent="HUD/HSplitContainer/GameArea"]
 layout_mode = 1
@@ -224,6 +238,7 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="PlayerArea" parent="HUD/HSplitContainer/GameArea/BottomPlayerContainer" instance=ExtResource("4_g37ux")]
+unique_name_in_owner = true
 layout_mode = 2
 player_path = NodePath("../../../../../Players/Player0")
 

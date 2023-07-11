@@ -46,6 +46,8 @@ var food_materials: Array[FoodMaterial] = []
 
 var decorations: Array[Decoration] = []
 
+var helding_customers: Array[Customer] = []
+
 var _is_finishing_turn_allowed: bool
 
 var is_finishing_turn_allowed: bool:
@@ -59,7 +61,7 @@ var is_finishing_turn_allowed: bool:
 func begin_turn() -> void:
 	if state.name == 'Idle':
 		Log.push('%s 回合开始。' % player_name)
-		state_machine.transit_to('Step1')
+		state_machine.transit_to('Step0')
 		turn_begun.emit()
 
 

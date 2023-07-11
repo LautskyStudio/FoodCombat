@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cxn6gfn8y35ul"]
+[gd_scene load_steps=17 format=3 uid="uid://cxn6gfn8y35ul"]
 
 [ext_resource type="Script" path="res://models/player/player.gd" id="1_qqapd"]
 [ext_resource type="Script" path="res://models/state_machine/state_machine.gd" id="2_11yvc"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://models/player/states/inactive.gd" id="4_jj8nr"]
 [ext_resource type="Script" path="res://models/player/states/idle.gd" id="5_nlvs4"]
 [ext_resource type="Script" path="res://models/player/states/step_1.gd" id="6_durqn"]
+[ext_resource type="Script" path="res://models/player/states/step_0.gd" id="6_mwewg"]
 [ext_resource type="Script" path="res://models/player/states/step_2.gd" id="7_rui2f"]
 [ext_resource type="Script" path="res://models/player/states/step_3.gd" id="8_68w7i"]
 [ext_resource type="Script" path="res://models/player/states/step_4.gd" id="9_6htyx"]
@@ -14,6 +15,7 @@
 [ext_resource type="Script" path="res://models/player/states/step_7.gd" id="12_h6b66"]
 [ext_resource type="Script" path="res://models/player/states/step_8.gd" id="13_7jvei"]
 [ext_resource type="Script" path="res://models/player/states/step_9.gd" id="14_oclpk"]
+[ext_resource type="Script" path="res://models/player/states/step_10.gd" id="16_6bsal"]
 
 [node name="Player" type="Node"]
 script = ExtResource("1_qqapd")
@@ -32,7 +34,7 @@ script = ExtResource("4_jj8nr")
 script = ExtResource("5_nlvs4")
 
 [node name="Step0" type="Node" parent="StateMachine"]
-script = ExtResource("6_durqn")
+script = ExtResource("6_mwewg")
 
 [node name="Step1" type="Node" parent="StateMachine"]
 script = ExtResource("6_durqn")
@@ -60,5 +62,8 @@ script = ExtResource("13_7jvei")
 
 [node name="Step9" type="Node" parent="StateMachine"]
 script = ExtResource("14_oclpk")
+
+[node name="Step10" type="Node" parent="StateMachine"]
+script = ExtResource("16_6bsal")
 
 [connection signal="transitioned" from="StateMachine" to="." method="_on_state_machine_transitioned"]

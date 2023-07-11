@@ -3,7 +3,14 @@ extends VBoxContainer
 class_name VisualCard
 
 
-var card: Card
+var _card: Card
+
+var card: Card:
+	get:
+		return _card
+	set(value):
+		_card = value
+		_update()
 
 @export var selectable: bool = true
 
@@ -18,8 +25,12 @@ var _is_selected := false
 
 
 func _ready() -> void:
-	if card:
-		%TitleLabel.text = card.title
-		%DescriptionLabel.text = card.description
+	_update()
 
+
+func _update() -> void:
+	if is_inside_tree():
+		if card:
+			%TitleLabel.text = card.title
+			%DescriptionLabel.text = card.description
 	%SelectButton.visible = selectable

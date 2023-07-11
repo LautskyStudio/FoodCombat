@@ -3,13 +3,13 @@
 [ext_resource type="Script" path="res://models/card/visual_card.gd" id="1_n4rgb"]
 
 [node name="VisualCard" type="VBoxContainer"]
+custom_minimum_size = Vector2(120, 160)
 anchors_preset = 10
 anchor_right = 1.0
-offset_right = -1476.0
-offset_bottom = 225.0
+offset_right = -1480.0
+offset_bottom = 195.0
 grow_horizontal = 2
 script = ExtResource("1_n4rgb")
-selectable = null
 
 [node name="SelectButton" type="CheckBox" parent="."]
 unique_name_in_owner = true
@@ -21,6 +21,7 @@ text = "选择"
 [node name="PanelContainer" type="PanelContainer" parent="."]
 custom_minimum_size = Vector2(120, 160)
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer"]
 layout_mode = 2

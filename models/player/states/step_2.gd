@@ -7,8 +7,6 @@ extends PlayerState
 signal card_drawn(card: Decoration)
 
 
-var turn := 0
-
 var drawn_count := 0
 
 var max_drawn_count := 3
@@ -22,9 +20,8 @@ func _init() -> void:
 	description = "抽取装扮卡"
 
 
-func enter(_args := {}) -> void:
-	if turn != player.game.turn:
-		_reset()
+func enter(args := {}) -> void:
+	super.enter(args)
 
 
 func _reset() -> void:

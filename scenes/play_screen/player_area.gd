@@ -5,8 +5,22 @@ const FlatCard = preload("res://models/card/flat_card.tscn")
 const VisualCard = preload("res://models/card/visual_card.tscn")
 
 
+signal cards_selected(cards: Array[FoodMaterial])
+
+
 @export var player_path := NodePath()
+
 var player := Player.new()
+
+@onready var card_container = %FoodMaterialCardContainer
+
+@onready var selected_cards:
+	get:
+		var selected = []
+		for child in card_container.get_children():
+			if child is VisualCard and child.is_selected:
+				selected.append(child)
+		return selected
 
 
 func _ready() -> void:
