@@ -23,6 +23,8 @@ func _init() -> void:
 
 
 func enter(_args := {}) -> void:
+	player.is_finishing_turn_allowed = false
+
 	if turn != player.game.turn:
 		_reset()
 

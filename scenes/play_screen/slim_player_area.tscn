@@ -45,7 +45,8 @@ tooltip_text = "店铺卡、装扮卡（最多同时装备三张，每种类型�
 mouse_filter = 1
 text = "店铺区"
 
-[node name="ShopCardArea" type="HBoxContainer" parent="PlayerInfoContainer"]
+[node name="DecorationArea" type="HBoxContainer" parent="PlayerInfoContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 alignment = 1
 

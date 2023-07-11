@@ -31,6 +31,9 @@ script = ExtResource("4_jj8nr")
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("5_nlvs4")
 
+[node name="Step0" type="Node" parent="StateMachine"]
+script = ExtResource("6_durqn")
+
 [node name="Step1" type="Node" parent="StateMachine"]
 script = ExtResource("6_durqn")
 

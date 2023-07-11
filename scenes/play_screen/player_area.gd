@@ -18,6 +18,7 @@ func _ready() -> void:
 	player.waiting_area_changed.connect(func (cards): _on_card_deck_changed(%WaitingArea, cards, FlatCard))
 	player.eating_area_changed.connect(func (cards): _on_card_deck_changed(%EatingArea, cards, FlatCard))
 	player.food_materials_changed.connect(func (cards): _on_card_deck_changed(%FoodMaterialCardContainer, cards, VisualCard))
+	player.decorations_changed.connect(func (cards): _on_card_deck_changed(%DecorationArea, cards, FlatCard))
 
 
 func _process(_delta: float) -> void:

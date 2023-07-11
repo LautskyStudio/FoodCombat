@@ -9,6 +9,7 @@ signal is_finishing_turn_allowed_changed(value: bool)
 signal waiting_area_changed(cards: Array[Customer])
 signal eating_area_changed(cards: Array[Customer])
 signal food_materials_changed(cards: Array[FoodMaterial])
+signal decorations_changed(cards: Array[Decoration])
 
 
 @export var player_name := '玩家'
@@ -43,6 +44,8 @@ var eating_area: Array[Customer] = []
 
 var food_materials: Array[FoodMaterial] = []
 
+var decorations: Array[Decoration] = []
+
 var _is_finishing_turn_allowed: bool
 
 var is_finishing_turn_allowed: bool:
@@ -65,6 +68,26 @@ func finish_turn() -> void:
 	turn_finished.emit()
 
 
+func install_decoration_card(card: Decoration) -> void:
+	var same_kind_decorations = decorations.filter(func (d): return d.kind == card.kind)
+
+	if len(same_kind_decorations) > 0:
+		var idx = decorations.find(same_kind_decorations[0])
+		var old_card = decorations[idx]
+		decorations[idx] = card
+		game.discarded_decorations.append(old_card)
+
+		Log.push("%s 使用装扮 %s 替换了 %s。" % [player_name, card.title, old_card.title])
+	else:
+		decorations.append(card)
+		if len(decorations) > 3:
+			decorations.pop_front()
+
+		Log.push("%s 安装了装扮 %s。" % [player_name, card.title])
+
+	_notify_decorations_changed()
+
+
 func notify_waiting_area_changed() -> void:
 	waiting_area_changed.emit(waiting_area)
 
@@ -75,6 +98,10 @@ func notify_eating_area_changed() -> void:
 
 func notify_food_materials_changed() -> void:
 	food_materials_changed.emit(food_materials)
+
+
+func _notify_decorations_changed() -> void:
+	decorations_changed.emit(decorations)
 
 
 func _on_state_machine_transitioned(new_state, old_state) -> void:
