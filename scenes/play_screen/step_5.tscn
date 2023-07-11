@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://c1qp3clg4qov"]
 
-[ext_resource type="Script" path="res://scenes/play_screen/step_4.gd" id="1_e5fsr"]
+[ext_resource type="Script" path="res://scenes/play_screen/step_5.gd" id="1_7hfep"]
 [ext_resource type="PackedScene" uid="uid://basr5mxkjqjlv" path="res://models/card/visual_card.tscn" id="2_ohkog"]
 
-[node name="Step4" type="BoxContainer"]
-script = ExtResource("1_e5fsr")
+[node name="Step5" type="BoxContainer"]
+script = ExtResource("1_7hfep")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2

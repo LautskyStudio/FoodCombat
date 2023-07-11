@@ -49,8 +49,8 @@ func _on_hidden() -> void:
 
 
 func _on_submit_button_pressed() -> void:
-	pass # Replace with function body.
+	state.submit(_materials)
 
 
 func _on_discard_button_pressed() -> void:
-	pass # Replace with function body.
+	state.discard(_materials)

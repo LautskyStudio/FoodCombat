@@ -17,16 +17,19 @@ func _ready() -> void:
 func enter(_args := {}) -> void:
 	if turn != player.game.turn:
 		turn = player.game.turn
-		_reset()
+		_on_first_enter_at_this_turn(_args)
 
 
 # 本回合初次进入此阶段时的效果
-func _reset() -> void:
+func _on_first_enter_at_this_turn(_args := {}) -> void:
 	pass
 
 
-func lose_when_bankrupts() -> void:
+func bankrupts() -> bool:
 	if player.is_lost:
 		state_machine.transit_to('Inactive')
 		Log.push("%s 破产了！" % [player.player_name])
 		player.finish_turn()
+		return true
+
+	return false

@@ -23,10 +23,6 @@ func _init() -> void:
 func enter(args := {}) -> void:
 	super.enter(args)
 
-	player.is_finishing_turn_allowed = false
-
-
-func _reset() -> void:
 	drawn_count = 0
 	draw_card()
 
@@ -38,7 +34,9 @@ func next_step() -> void:
 func draw_card() -> void:
 	player.coins -= 1
 	drawn_count += 1
-	lose_when_bankrupts()
+
+	if bankrupts():
+		return
 
 	var card = player.game.get_food_material_card()
 	player.food_materials.append(card)

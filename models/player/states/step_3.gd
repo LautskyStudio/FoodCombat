@@ -6,11 +6,10 @@ extends PlayerState
 
 func enter(args := {}) -> void:
 	super.enter(args)
-	state_machine.transit_to("Step4")
 
-
-func _reset() -> void:
 	if len(player.eating_area) > 0:
 		player.helding_customers.append_array(player.eating_area)
 		player.eating_area.clear()
 		player.notify_eating_area_changed()
+
+	state_machine.transit_to("Step4")

@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cfwec6ywv14j3" path="res://scenes/play_screen/step_1.tscn" id="11_trudk"]
 [ext_resource type="PackedScene" uid="uid://cxn6gfn8y35ul" path="res://models/player/player.tscn" id="12_dpxem"]
 [ext_resource type="PackedScene" uid="uid://bmfnye5sbivpx" path="res://scenes/play_screen/step_2.tscn" id="12_ypkra"]
-[ext_resource type="PackedScene" uid="uid://c1qp3clg4qov" path="res://scenes/play_screen/step_4.tscn" id="13_h6lxk"]
+[ext_resource type="PackedScene" uid="uid://c1qp3clg4qov" path="res://scenes/play_screen/step_5.tscn" id="13_h6lxk"]
 
 [node name="PlayScreen" type="Control"]
 layout_mode = 3
@@ -217,11 +217,11 @@ visible = false
 layout_mode = 2
 state_path = NodePath("../../../../../../Players/Player0/StateMachine/Step2")
 
-[node name="Step4" parent="HUD/HSplitContainer/GameArea/CenterContainer/MarginContainer" instance=ExtResource("13_h6lxk")]
+[node name="Step5" parent="HUD/HSplitContainer/GameArea/CenterContainer/MarginContainer" instance=ExtResource("13_h6lxk")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-state_path = NodePath("../../../../../../Players/Player0/StateMachine/Step4")
+state_path = NodePath("../../../../../../Players/Player0/StateMachine/Step5")
 
 [node name="BottomPlayerContainer" type="PanelContainer" parent="HUD/HSplitContainer/GameArea"]
 layout_mode = 1

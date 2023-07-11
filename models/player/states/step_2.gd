@@ -23,9 +23,6 @@ func _init() -> void:
 func enter(args := {}) -> void:
 	super.enter(args)
 
-
-func _reset() -> void:
-	turn = player.game.turn
 	drawn_count = 0
 
 
@@ -36,11 +33,12 @@ func next_step() -> void:
 func draw_card() -> void:
 	player.coins -= 1
 	drawn_count += 1
-	lose_when_bankrupts()
+
+	if bankrupts():
+		return
 
 	var card = player.game.get_decoration_card()
+	card_drawn.emit(card)
 	Log.push("%s 消费 1 金币抽取了 %s。" % [player.player_name, card.title])
 
 	player.install_decoration_card(card)
-
-	card_drawn.emit(card)
