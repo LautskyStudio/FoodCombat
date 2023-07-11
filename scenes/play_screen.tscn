@@ -201,11 +201,13 @@ layout_mode = 2
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
+state_path = NodePath("../../../../../Players/Player0/StateMachine/Step1")
 
 [node name="Step2" parent="HUD/HSplitContainer/GameArea/CenterContainer" instance=ExtResource("12_ypkra")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
+state_path = NodePath("../../../../../Players/Player0/StateMachine/Step2")
 
 [node name="BottomPlayerContainer" type="PanelContainer" parent="HUD/HSplitContainer/GameArea"]
 layout_mode = 1
@@ -328,7 +330,8 @@ visible = false
 [node name="LogContainer" parent="HUD/HSplitContainer" instance=ExtResource("2_622vs")]
 layout_mode = 2
 
-[connection signal="state_changed" from="Players/Player0" to="." method="_on_player_0_state_changed"]
 [connection signal="timeout" from="BotActionTimer" to="StateMachine/Running" method="_on_bot_action_timer_timeout"]
 [connection signal="pressed" from="HUD/HSplitContainer/GameArea/PauseButton" to="StateMachine/Running" method="_on_pause_button_pressed"]
 [connection signal="pressed" from="HUD/HSplitContainer/GameArea/PublicCardDeckContainer/MarginContainer/VBoxContainer/ShowCardDeckButton" to="." method="_on_show_card_deck_button_pressed"]
+
+[editable path="Players/Player0"]

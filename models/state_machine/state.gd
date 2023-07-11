@@ -2,6 +2,10 @@ extends Node
 class_name State
 
 
+signal state_entered
+signal state_exited
+
+
 var state_machine: StateMachine
 
 

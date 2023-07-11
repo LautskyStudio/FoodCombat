@@ -35,8 +35,11 @@ func transit_to(state_name: String, args := {}):
 	assert(next_state != null)
 
 	state.exit()
+	state.state_exited.emit()
 	args['previous_state'] = state
+
 	state = next_state
 	state.enter(args)
+	state.state_entered.emit()
 
 	transitioned.emit(next_state, old_state)

@@ -54,8 +54,8 @@ var is_finishing_turn_allowed: bool:
 
 
 func begin_turn() -> void:
-	Log.push('%s 回合开始。' % player_name)
 	if state.name == 'Idle':
+		Log.push('%s 回合开始。' % player_name)
 		state_machine.transit_to('Step1')
 		turn_begun.emit()
 
