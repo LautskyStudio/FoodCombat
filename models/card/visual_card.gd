@@ -3,6 +3,9 @@ extends VBoxContainer
 class_name VisualCard
 
 
+signal card_selection_changed
+
+
 var _card: Card
 
 var card: Card:
@@ -19,7 +22,8 @@ var _is_selected := false
 @export var is_selected: bool:
 	set(value):
 		_is_selected = value
-		%IsSelectedCheckBox.button_pressed = value
+		%SelectButton.button_pressed = value
+		card_selection_changed.emit()
 	get:
 		return _is_selected
 
@@ -34,3 +38,7 @@ func _update() -> void:
 			%TitleLabel.text = card.title
 			%DescriptionLabel.text = card.description
 	%SelectButton.visible = selectable
+
+
+func _on_select_button_toggled(button_pressed: bool) -> void:
+	is_selected = button_pressed

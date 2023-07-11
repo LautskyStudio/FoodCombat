@@ -38,6 +38,18 @@ unique_name_in_owner = true
 layout_mode = 2
 columns = 3
 
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer3/NeedContainer"]
+layout_mode = 2
+text = "名称"
+
+[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer3/NeedContainer"]
+layout_mode = 2
+text = "食材"
+
+[node name="Label3" type="Label" parent="HBoxContainer/VBoxContainer3/NeedContainer"]
+layout_mode = 2
+text = "奖励"
+
 [node name="VSeparator3" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
 
@@ -53,6 +65,14 @@ unique_name_in_owner = true
 layout_mode = 2
 columns = 2
 
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer4/EventContainer"]
+layout_mode = 2
+text = "标题"
+
+[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer4/EventContainer"]
+layout_mode = 2
+text = "效果"
+
 [node name="VSeparator2" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
 
@@ -63,11 +83,15 @@ alignment = 1
 [node name="SubmitButton" type="Button" parent="HBoxContainer/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
+disabled = true
 text = "制作美食"
 
 [node name="DiscardButton" type="Button" parent="HBoxContainer/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "弃牌"
+disabled = true
+text = "弃牌并放弃"
 
 [connection signal="hidden" from="." to="." method="_on_hidden"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/SubmitButton" to="." method="_on_submit_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/DiscardButton" to="." method="_on_discard_button_pressed"]

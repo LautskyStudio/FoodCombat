@@ -42,3 +42,5 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "蕴含着美食力量的神秘卡片。"
 autowrap_mode = 3
+
+[connection signal="toggled" from="SelectButton" to="." method="_on_select_button_toggled"]

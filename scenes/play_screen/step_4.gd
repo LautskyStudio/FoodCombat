@@ -3,6 +3,8 @@ extends "res://scenes/play_screen/step_base.gd"
 
 var play_screen: PlayScreen
 
+var _materials: Array[FoodMaterial] = []
+
 
 func _ready() -> void:
 	super._ready()
@@ -24,15 +26,31 @@ func _on_show() -> void:
 			label.text = str(need.get(property))
 			%NeedContainer.add_child(label)
 
+	_update()
+
+
+func _update() -> void:
+	%SubmitButton.disabled = !state.customer.can_be_fulfilled_by(_materials)
+	%DiscardButton.disabled = len(_materials) < 1
+
 
 func _on_cards_selected(cards: Array[FoodMaterial]) -> void:
-	pass
+	_materials = cards
+	_update()
 
 
 func _clear() -> void:
-	Utils.free_all_children(%NeedContainer)
-	Utils.free_all_children(%EventContainer)
+	Utils.free_all(%NeedContainer.get_children().slice(3))
+	Utils.free_all(%EventContainer.get_children().slice(2))
 
 
 func _on_hidden() -> void:
 	_clear()
+
+
+func _on_submit_button_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_discard_button_pressed() -> void:
+	pass # Replace with function body.

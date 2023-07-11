@@ -14,12 +14,12 @@ var player := Player.new()
 
 @onready var card_container = %FoodMaterialCardContainer
 
-@onready var selected_cards:
+@onready var selected_cards: Array[FoodMaterial]:
 	get:
-		var selected = []
+		var selected: Array[FoodMaterial] = []
 		for child in card_container.get_children():
 			if child is VisualCard and child.is_selected:
-				selected.append(child)
+				selected.append(child.card)
 		return selected
 
 
@@ -46,7 +46,14 @@ func _process(_delta: float) -> void:
 
 func _on_card_deck_changed(card_deck: Node, cards: Array, card_scene: PackedScene) -> void:
 	Utils.free_all_children(card_deck)
+
 	for card in cards:
-		var visual_card = card_scene.instantiate()
-		visual_card.card = card
-		card_deck.add_child(visual_card)
+		var card_view = card_scene.instantiate()
+		card_view.card = card
+		if card_view is VisualCard:
+			card_view.card_selection_changed.connect(_on_card_selection_changed)
+		card_deck.add_child(card_view)
+
+
+func _on_card_selection_changed():
+	cards_selected.emit(selected_cards)
