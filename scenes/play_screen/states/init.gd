@@ -33,6 +33,8 @@ func init_coins_and_cards() -> void:
 	var initial_coins = Settings.player_number * 2
 	for player in game.players:
 		player.coins = initial_coins
+		for i in range(3):
+			player.waiting_area.append(game.get_customer_card())
 
 	Log.push("本局游戏共有 %d 名玩家，每名玩家初始金币数量为 %d。" % [Settings.player_number, initial_coins])
 	Log.push("游戏目标为死亡竞赛。（>_<）为什么美食争霸要打死亡竞赛啊喂？")

@@ -8,5 +8,4 @@ class_name Player
 
 var coins := 0
 
-var hand_cards: Array[Card] = []
-var hand_cards_dict := {}
+var waiting_area: Array[Customer] = []

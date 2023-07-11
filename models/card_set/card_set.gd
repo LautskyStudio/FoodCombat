@@ -8,17 +8,17 @@ class_name CardSet
 
 
 func _init() -> void:
-	for food_material in FoodMaterials.get_property_list().map(func(x): return FoodMaterials.get(x.name)):
+	for food_material in _get_object_properties(FoodMaterials):
 		if food_material is FoodMaterial:
 			for i in range(randi_range(2, 6)):
 				food_materials.append(food_material.duplicate())
 
-	for customer in Customers.get_property_list().map(func(x): return Customers.get(x.name)):
+	for customer in _get_object_properties(Customers):
 		if customer is Customer:
 			for i in range(randi_range(6, 8)):
 				customers.append(customer.duplicate())
 
-	for decoration in Decorations.get_property_list().map(func(x): return Decorations.get(x.name)):
+	for decoration in _get_object_properties(Decorations):
 		if decoration is Decoration:
 			for i in range(randi_range(1, 2)):
 				decorations.append(decoration.duplicate())
@@ -26,3 +26,7 @@ func _init() -> void:
 	food_materials.shuffle()
 	customers.shuffle()
 	decorations.shuffle()
+
+
+func _get_object_properties(object: Object) -> Array:
+	return object.get_property_list().map(func(x): return object.get(x.name))
