@@ -95,3 +95,11 @@ func _get_card(remaining_deck: Array, discarded_deck: Array, log_when_shuffle: S
 		discarded_deck.clear()
 		Log.push(log_when_shuffle)
 	return remaining_deck.pop_back()
+
+
+func _on_player_0_state_changed(new_state: PlayerState, old_state: PlayerState) -> void:
+	if old_state.name.begins_with("Step"):
+		get_node("%" + old_state.name).hide()
+
+	if new_state.name.begins_with("Step"):
+		get_node("%" + new_state.name).show()

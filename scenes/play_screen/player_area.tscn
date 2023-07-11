@@ -14,83 +14,92 @@ text = "正在等待其他玩家"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="PlayerInfoContainer" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="GridContainer" type="GridContainer" parent="HBoxContainer"]
+[node name="GridContainer" type="GridContainer" parent="PlayerInfoContainer"]
 layout_mode = 2
 columns = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/GridContainer"]
+[node name="Label" type="Label" parent="PlayerInfoContainer/GridContainer"]
 layout_mode = 2
 text = "货币"
 
-[node name="CoinNumberLabel" type="Label" parent="HBoxContainer/GridContainer"]
+[node name="CoinNumberLabel" type="Label" parent="PlayerInfoContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 
-[node name="Label3" type="Label" parent="HBoxContainer/GridContainer"]
+[node name="Label3" type="Label" parent="PlayerInfoContainer/GridContainer"]
 layout_mode = 2
 text = "食材"
 
-[node name="FoodMaterialCardNumberLabel" type="Label" parent="HBoxContainer/GridContainer"]
+[node name="FoodMaterialCardNumberLabel" type="Label" parent="PlayerInfoContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 
-[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
+[node name="VSeparator" type="VSeparator" parent="PlayerInfoContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PlayerInfoContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="PlayerInfoContainer/VBoxContainer"]
 layout_mode = 2
 text = "等待区"
 
-[node name="WaitingArea" type="VBoxContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="WaitingArea" type="VBoxContainer" parent="PlayerInfoContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VSeparator2" type="VSeparator" parent="HBoxContainer"]
+[node name="VSeparator2" type="VSeparator" parent="PlayerInfoContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="PlayerInfoContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2"]
+[node name="Label" type="Label" parent="PlayerInfoContainer/VBoxContainer2"]
 layout_mode = 2
 text = "就餐区"
 
-[node name="EatingArea" type="VBoxContainer" parent="HBoxContainer/VBoxContainer2"]
+[node name="EatingArea" type="VBoxContainer" parent="PlayerInfoContainer/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VSeparator3" type="VSeparator" parent="HBoxContainer"]
+[node name="VSeparator3" type="VSeparator" parent="PlayerInfoContainer"]
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="PlayerInfoContainer"]
 custom_minimum_size = Vector2(800, 200)
 layout_mode = 2
 
-[node name="FoodMaterialCardContainer" type="HBoxContainer" parent="HBoxContainer/ScrollContainer"]
+[node name="FoodMaterialCardContainer" type="HBoxContainer" parent="PlayerInfoContainer/ScrollContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="VSeparator4" type="VSeparator" parent="HBoxContainer"]
+[node name="VSeparator4" type="VSeparator" parent="PlayerInfoContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="PlayerInfoContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="EndTurnButton" type="Button" parent="HBoxContainer/VBoxContainer3"]
+[node name="EndTurnButton" type="Button" parent="PlayerInfoContainer/VBoxContainer3"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
 disabled = true
 text = "完成本轮"
+
+[node name="BankruptLabel" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "破产！"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -15,24 +15,18 @@ func _ready() -> void:
 			player.queue_free()
 		player = get_node(player_path)
 
-	player.is_finishing_turn_allowed_changed.connect(func(_x): _update_end_turn_button())
 	player.waiting_area_changed.connect(func (cards): _on_card_deck_changed(%WaitingArea, cards, FlatCard))
 	player.eating_area_changed.connect(func (cards): _on_card_deck_changed(%EatingArea, cards, FlatCard))
 	player.food_materials_changed.connect(func (cards): _on_card_deck_changed(%FoodMaterialCardContainer, cards, VisualCard))
 
 
 func _process(_delta: float) -> void:
+	%StateLabel.text = player.state.description
 	%CoinNumberLabel.text = str(player.coins)
 	%FoodMaterialCardNumberLabel.text = str(len(player.food_materials))
-	_update()
-
-
-func _update() -> void:
-	_update_end_turn_button()
-
-
-func _update_end_turn_button() -> void:
 	%EndTurnButton.disabled = !player.is_finishing_turn_allowed
+	%PlayerInfoContainer.visible = player.is_active
+	%BankruptLabel.visible = !player.is_active
 
 
 func _on_card_deck_changed(card_deck: Node, cards: Array, card_scene: PackedScene) -> void:

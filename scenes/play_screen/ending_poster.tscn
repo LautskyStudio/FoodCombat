@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c5falqirn5phk"]
+
+[node name="EndingPoster" type="VBoxContainer"]
+visible = false
+
+[node name="WinerLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "您获胜了！"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DescriptionLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "现实是此岸，梦想是彼岸，中间隔着湍急的河流，行动则是架在河上的桥梁。"

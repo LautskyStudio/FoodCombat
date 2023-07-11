@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bpr4wm5ery3w5"]
+[gd_scene load_steps=18 format=3 uid="uid://bpr4wm5ery3w5"]
 
 [ext_resource type="Script" path="res://scenes/play_screen.gd" id="1_q04vv"]
 [ext_resource type="Texture2D" uid="uid://c1cgechtmkqv0" path="res://assets/sozaino.site/syokuji28.png" id="1_u2ltd"]
@@ -12,8 +12,11 @@
 [ext_resource type="Script" path="res://scenes/play_screen/states/end.gd" id="7_7qh7p"]
 [ext_resource type="PackedScene" uid="uid://8qbrb1qilm5" path="res://scenes/play_screen/pause_menu.tscn" id="9_exsm3"]
 [ext_resource type="PackedScene" uid="uid://cxe1wq7xlxu00" path="res://scenes/play_screen/card_stack_display.tscn" id="10_unaep"]
+[ext_resource type="PackedScene" uid="uid://c5falqirn5phk" path="res://scenes/play_screen/ending_poster.tscn" id="10_wbmxn"]
 [ext_resource type="PackedScene" uid="uid://dmn8xlkjj0iww" path="res://scenes/play_screen/card_deck_popup.tscn" id="11_4hglu"]
+[ext_resource type="PackedScene" uid="uid://cfwec6ywv14j3" path="res://scenes/play_screen/step_1.tscn" id="11_trudk"]
 [ext_resource type="PackedScene" uid="uid://cxn6gfn8y35ul" path="res://models/player/player.tscn" id="12_dpxem"]
+[ext_resource type="PackedScene" uid="uid://bmfnye5sbivpx" path="res://scenes/play_screen/step_2.tscn" id="12_ypkra"]
 
 [node name="PlayScreen" type="Control"]
 layout_mode = 3
@@ -190,23 +193,19 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="EndingPoster" type="VBoxContainer" parent="HUD/HSplitContainer/GameArea/CenterContainer"]
+[node name="EndingPoster" parent="HUD/HSplitContainer/GameArea/CenterContainer" instance=ExtResource("10_wbmxn")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Step1" parent="HUD/HSplitContainer/GameArea/CenterContainer" instance=ExtResource("11_trudk")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="WinerLabel" type="Label" parent="HUD/HSplitContainer/GameArea/CenterContainer/EndingPoster"]
+[node name="Step2" parent="HUD/HSplitContainer/GameArea/CenterContainer" instance=ExtResource("12_ypkra")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "您获胜了！"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="DescriptionLabel" type="Label" parent="HUD/HSplitContainer/GameArea/CenterContainer/EndingPoster"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "现实是此岸，梦想是彼岸，中间隔着湍急的河流，行动则是架在河上的桥梁。"
 
 [node name="BottomPlayerContainer" type="PanelContainer" parent="HUD/HSplitContainer/GameArea"]
 layout_mode = 1
@@ -329,6 +328,7 @@ visible = false
 [node name="LogContainer" parent="HUD/HSplitContainer" instance=ExtResource("2_622vs")]
 layout_mode = 2
 
+[connection signal="state_changed" from="Players/Player0" to="." method="_on_player_0_state_changed"]
 [connection signal="timeout" from="BotActionTimer" to="StateMachine/Running" method="_on_bot_action_timer_timeout"]
 [connection signal="pressed" from="HUD/HSplitContainer/GameArea/PauseButton" to="StateMachine/Running" method="_on_pause_button_pressed"]
 [connection signal="pressed" from="HUD/HSplitContainer/GameArea/PublicCardDeckContainer/MarginContainer/VBoxContainer/ShowCardDeckButton" to="." method="_on_show_card_deck_button_pressed"]

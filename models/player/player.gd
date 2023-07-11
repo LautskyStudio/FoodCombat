@@ -4,7 +4,7 @@ class_name Player
 
 signal turn_begun
 signal turn_finished
-signal state_changed(state: PlayerState)
+signal state_changed(new_state: PlayerState, old_state: PlayerState)
 signal is_finishing_turn_allowed_changed(value: bool)
 signal waiting_area_changed(cards: Array[Customer])
 signal eating_area_changed(cards: Array[Customer])
@@ -31,6 +31,10 @@ var is_bot: bool:
 
 var coins := 0
 
+var is_lost: bool:
+	get:
+		return coins < 0
+
 var waiting_area: Array[Customer] = []
 
 var eating_area: Array[Customer] = []
@@ -50,7 +54,7 @@ var is_finishing_turn_allowed: bool:
 func begin_turn() -> void:
 	Log.push('%s 回合开始。' % player_name)
 	if state.name == 'Idle':
-		state_machine.transit_to('')
+		state_machine.transit_to('Step1')
 		turn_begun.emit()
 
 
@@ -71,5 +75,5 @@ func notify_food_materials_changed() -> void:
 	food_materials_changed.emit(food_materials)
 
 
-func _on_state_machine_transitioned(_state_name, state) -> void:
-	state_changed.emit(state as PlayerState)
+func _on_state_machine_transitioned(new_state, old_state) -> void:
+	state_changed.emit(new_state as PlayerState, old_state as PlayerState)

@@ -2,7 +2,7 @@ extends Node
 class_name StateMachine
 
 
-signal transitioned(state_name: String, state: State)
+signal transitioned(new_state: State, old_state: State)
 
 
 @export var initial_state := NodePath()
@@ -31,6 +31,7 @@ func transit_to(state_name: String, args := {}):
 		push_error("State {%s} is not a valid state." % state_name)
 
 	var next_state: State = get_node(state_name)
+	var old_state = state
 	assert(next_state != null)
 
 	state.exit()
@@ -38,4 +39,4 @@ func transit_to(state_name: String, args := {}):
 	state = next_state
 	state.enter(args)
 
-	transitioned.emit(state_name, state)
+	transitioned.emit(next_state, old_state)
