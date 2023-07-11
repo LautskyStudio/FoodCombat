@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scenes/play_screen/card_deck_popup.gd" id="1_lx2tf"]
 
 [node name="CardDeckPopup" type="Popup"]
+title = "公共牌堆"
 size = Vector2i(600, 400)
 visible = true
 borderless = false
@@ -113,3 +114,5 @@ layout_mode = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
+
+[connection signal="popup_hide" from="." to="." method="_on_popup_hide"]

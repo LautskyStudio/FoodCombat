@@ -6,7 +6,6 @@ const FlatCard = preload("res://models/card/flat_card.tscn")
 
 
 func setup(remaining_dict: Dictionary, discarded_dict: Dictionary) -> void:
-	_clear()
 	_setup_container(%RemainingFoodMaterialsContainer, remaining_dict['food_materials'])
 	_setup_container(%RemainingCostomersContainer, remaining_dict['customers'])
 	_setup_container(%RemainingDecorationsContainer, remaining_dict['decorations'])
@@ -38,3 +37,7 @@ func _clear() -> void:
 func _free_all(arr: Array[Node]) -> void:
 	for node in arr:
 		node.queue_free()
+
+
+func _on_popup_hide() -> void:
+	_clear()
