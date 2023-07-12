@@ -50,7 +50,11 @@ func _on_hidden() -> void:
 
 func _on_submit_button_pressed() -> void:
 	state.submit(_materials)
+	_materials = []
+	_update()
 
 
 func _on_discard_button_pressed() -> void:
 	state.discard(_materials)
+	_materials = []
+	_update()

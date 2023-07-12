@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://m45ocekovbve"]
+
+[ext_resource type="Script" path="res://scenes/play_screen/player_button.gd" id="1_2dsbw"]
+
+[node name="PlayerButton" type="Button"]
+text = "玩家名"
+script = ExtResource("1_2dsbw")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

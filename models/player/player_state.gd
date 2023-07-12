@@ -4,6 +4,10 @@ class_name PlayerState
 
 var player: Player
 
+var game: PlayScreen:
+	get:
+		return player.game
+
 var description := ""
 
 var turn := 0

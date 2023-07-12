@@ -6,12 +6,16 @@ var winner: int
 
 func enter(args := {}) -> void:
 	winner = args['winner']
+
+	var winner_label = play_screen.get_node('%EndingPoster/WinerLabel')
+	var poster = play_screen.get_node("%EndingPoster")
+
 	if winner == 0:
-		%WinerLabel.text = '您获胜了！'
+		winner_label.text = '您获胜了！'
 	else:
-		%WinerLabel.text = 'Good Game!'
-	%EndingPoster.show()
+		winner_label.text = 'Good Game!'
+	poster.show()
 
 
 func exit() -> void:
-	%EndingPoster.hide()
+	play_screen.get_node("%EndingPoster").hide()

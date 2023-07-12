@@ -20,7 +20,13 @@ func run_game() -> void:
 				return
 
 			current_player.begin_turn()
+			if current_player.is_bot:
+				%BotActionTimer.start()
+
 			await current_player.turn_finished
+			if current_player.is_bot:
+				%BotActionTimer.stop()
+
 			current_player = _find_next_player()
 
 
@@ -57,8 +63,42 @@ func _on_pause_button_pressed() -> void:
 
 func _on_bot_action_timer_timeout() -> void:
 	if current_player.is_bot:
-		match current_player.state.name:
+		var player = current_player
+		var state = player.state
+
+		match state.name:
 			"Init", "Idle", "Inactive":
+				pass
+
+			"Step1":
+				if state.is_drawing_enabled:
+					state.draw_card()
+				else:
+					state.next_step()
+
+			"Step2":
+				if state.is_drawing_enabled:
+					state.draw_card()
+				else:
+					state.next_step()
+
+			"Step3", "Step4":
+				pass
+
+			"Step5":
+				var materials = player.food_materials
+				if state.customer.can_be_fulfilled_by(materials):
+					state.submit(materials)
+				else:
+					state.discard(materials)
+
+			"Step6", "Step7", "Step8":
+				pass
+
+			"Step9":
+				state.transfer_to(state.available_targets[0])
+
+			"Step10":
 				pass
 
 			var unknown_state:
