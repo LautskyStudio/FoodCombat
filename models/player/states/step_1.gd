@@ -1,7 +1,7 @@
 extends PlayerState
 
 
-# 1. 从卡堆依次抽取1~3张食材卡，每抽取1张食材卡需要丢弃1张货币卡。
+## 1. 从卡堆依次抽取1~3张食材卡，每抽取1张食材卡需要丢弃1张货币卡。
 
 
 signal card_drawn(card: FoodMaterial)

@@ -1,7 +1,7 @@
 extends PlayerState
 
 
-# 回合结束，部分特殊效果发动。
+## 回合结束，部分特殊效果发动。
 
 
 func _init() -> void:

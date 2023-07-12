@@ -37,6 +37,8 @@ func _update() -> void:
 		if card:
 			%TitleLabel.text = card.title
 			%DescriptionLabel.text = card.description
+			if card is FoodMaterial:
+				%TitleLabel.text += " （%s）" % card.category
 	%SelectButton.visible = selectable
 
 

@@ -91,6 +91,7 @@ func install_decoration_card(card: Decoration) -> void:
 	_notify_decorations_changed()
 
 
+## @todo 采用类似 ObservableCollection 的实现方式，以避免手动调用 notify。
 func notify_waiting_area_changed() -> void:
 	waiting_area_changed.emit(waiting_area)
 

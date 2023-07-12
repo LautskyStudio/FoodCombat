@@ -1,6 +1,9 @@
 extends Node
 
 
+## @todo filter 条件待重构，以便编写更完善的 Bot。
+
+
 var 米饭 = Need.new(
 	'米饭',
 	'任意米',
