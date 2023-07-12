@@ -24,7 +24,9 @@ func run_game() -> void:
 			if current_player.is_bot:
 				%BotActionTimer.start()
 
-			await current_player.turn_finished
+			if current_player.is_active:
+				await current_player.turn_finished
+
 			if current_player.is_bot:
 				%BotActionTimer.stop()
 
@@ -41,8 +43,8 @@ func _find_next_player() -> Player:
 	return null
 
 
-# 寻找游戏的获胜者
-# 返回获胜者的 player_index；-1 表示没有获胜者（游戏还在进行）。
+## 寻找游戏的获胜者
+## 返回获胜者的 player_index；-1 表示没有获胜者（游戏还在进行）。
 func _find_winner() -> int:
 	var active_player_count := len(game.players.filter(func (p): return p.is_active))
 	var active_player_index := 0

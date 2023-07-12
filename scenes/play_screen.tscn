@@ -45,26 +45,32 @@ unique_name_in_owner = true
 
 [node name="Player0" parent="Players" instance=ExtResource("12_dpxem")]
 player_name = "玩家0"
+game_node_path = NodePath("../..")
 
 [node name="Player1" parent="Players" instance=ExtResource("12_dpxem")]
 player_name = "玩家1"
 player_index = 1
+game_node_path = NodePath("../..")
 
 [node name="Player2" parent="Players" instance=ExtResource("12_dpxem")]
 player_name = "玩家2"
 player_index = 2
+game_node_path = NodePath("../..")
 
 [node name="Player3" parent="Players" instance=ExtResource("12_dpxem")]
 player_name = "玩家3"
 player_index = 3
+game_node_path = NodePath("../..")
 
 [node name="Player4" parent="Players" instance=ExtResource("12_dpxem")]
 player_name = "玩家4"
 player_index = 4
+game_node_path = NodePath("../..")
 
 [node name="Player5" parent="Players" instance=ExtResource("12_dpxem")]
 player_name = "玩家5"
 player_index = 5
+game_node_path = NodePath("../..")
 
 [node name="BotActionTimer" type="Timer" parent="."]
 unique_name_in_owner = true

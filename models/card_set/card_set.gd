@@ -8,6 +8,11 @@ class_name CardSet
 
 
 func _init() -> void:
+	while len(food_materials) < Settings.player_number * Settings.player_number * 2 + 10:
+		_generate_cards()
+
+
+func _generate_cards() -> void:
 	for food_material in _get_object_properties(FoodMaterials):
 		if food_material is FoodMaterial:
 			for i in range(randi_range(2, 6)):

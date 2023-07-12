@@ -17,6 +17,8 @@ signal decorations_changed(cards: Array[Decoration])
 
 @export var player_index := 0
 
+@export var game_node_path := NodePath()
+
 @onready var game: PlayScreen
 
 @onready var is_active: bool:
@@ -57,6 +59,11 @@ var is_finishing_turn_allowed: bool:
 	set(value):
 		_is_finishing_turn_allowed = value
 		is_finishing_turn_allowed_changed.emit(value)
+
+
+func _ready() -> void:
+	game = get_node(game_node_path)
+	game.players.append(self)
 
 
 func begin_turn() -> void:

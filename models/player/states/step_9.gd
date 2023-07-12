@@ -43,9 +43,9 @@ func enter(_args := {}) -> void:
 func transfer_to(target_player) -> void:
 	target_player.waiting_area.append(customer)
 	target_player.notify_waiting_area_changed()
-	customer_transferred.emit()
-
 	Log.push("%s 将 %s 转移到了 %s。" % [player.player_name, customer.title, target_player.player_name])
+
+	customer_transferred.emit()
 
 
 func _should_discard() -> bool:

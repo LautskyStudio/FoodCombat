@@ -11,11 +11,11 @@ func _ready() -> void:
 
 	play_screen = owner as PlayScreen
 	assert(play_screen != null)
-	play_screen.get_node("%PlayerArea").cards_selected.connect(_on_cards_selected)
 
 
 func _on_show() -> void:
 	_clear()
+	_connect_input()
 
 	var customer = state.customer as Customer
 	%VisualCard.card = customer
@@ -27,6 +27,14 @@ func _on_show() -> void:
 			%NeedContainer.add_child(label)
 
 	_update()
+
+
+func _connect_input() -> void:
+	Utils.try_connect(play_screen.get_node("%PlayerArea").cards_selected, _on_cards_selected)
+
+
+func _disconnect_input() -> void:
+	Utils.try_disconnect(play_screen.get_node("%PlayerArea").cards_selected, _on_cards_selected)
 
 
 func _update() -> void:
@@ -46,6 +54,7 @@ func _clear() -> void:
 
 func _on_hidden() -> void:
 	_clear()
+	_disconnect_input()
 
 
 func _on_submit_button_pressed() -> void:

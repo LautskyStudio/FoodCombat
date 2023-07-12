@@ -47,5 +47,5 @@ func _add_log(message) -> void:
 
 func _clean_logs_when_necessary() -> void:
 	if log_list.get_child_count() > 200:
-		var logs = log_list.get_children().slice(0, 100)
+		var logs = log_list.get_children().slice(1, 100)
 		Utils.free_all(logs)

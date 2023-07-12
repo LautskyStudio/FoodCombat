@@ -5,8 +5,7 @@ class_name PlayScreen
 
 var turn := 0
 
-@onready var players: Array[Player] = []
-
+var players: Array[Player] = []
 
 var remaining_cards := {
 	'food_materials': [] as Array[FoodMaterial],
@@ -42,11 +41,6 @@ var discarded_decorations: Array[Decoration]:
 func _ready() -> void:
 	if not Engine.is_editor_hint():
 		Log.push("创建游戏界面。")
-
-	for player in %Players.get_children():
-		if player is Player:
-			player.game = self
-			players.push_back(player)
 
 
 func _process(_delta: float) -> void:
@@ -91,6 +85,8 @@ func get_decoration_card() -> Decoration:
 
 func _get_card(remaining_deck: Array, discarded_deck: Array, log_when_shuffle: String) -> Card:
 	if len(remaining_deck) == 0:
+		if len(discarded_deck) == 0:
+			push_error("卡片数量不足。")
 		discarded_deck.shuffle()
 		remaining_deck.append_array(discarded_deck)
 		discarded_deck.clear()
