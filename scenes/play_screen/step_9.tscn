@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cajic5aowmhbk"]
+[gd_scene load_steps=3 format=3 uid="uid://cajic5aowmhbk"]
 
 [ext_resource type="Script" path="res://scenes/play_screen/step_9.gd" id="1_t4xsv"]
 [ext_resource type="PackedScene" uid="uid://basr5mxkjqjlv" path="res://models/card/visual_card.tscn" id="2_gef6h"]
-[ext_resource type="PackedScene" uid="uid://m45ocekovbve" path="res://scenes/play_screen/player_button.tscn" id="3_ea6pp"]
 
 [node name="Step9" type="BoxContainer"]
 script = ExtResource("1_t4xsv")
@@ -37,9 +36,5 @@ text = "选择目标"
 unique_name_in_owner = true
 layout_mode = 2
 columns = 3
-
-[node name="PlayerButton" parent="." instance=ExtResource("3_ea6pp")]
-unique_name_in_owner = true
-layout_mode = 2
 
 [connection signal="hidden" from="." to="." method="_on_hidden"]

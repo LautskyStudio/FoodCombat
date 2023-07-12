@@ -42,15 +42,10 @@ func _add_log(message) -> void:
 	log_list.add_child(HSeparator.new())
 	log_list.add_child(label)
 
-	_clean_logs_when_neccessary()
+	_clean_logs_when_necessary()
 
 
-func _clean_logs_when_neccessary() -> void:
+func _clean_logs_when_necessary() -> void:
 	if log_list.get_child_count() > 200:
-		var logs = log_list.get_children()
-		var count = 0
-		for item in logs:
-			item.queue_free()
-			count += 1
-			if count > 100:
-				break
+		var logs = log_list.get_children().slice(0, 100)
+		Utils.free_all(logs)

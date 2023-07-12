@@ -4,8 +4,9 @@ extends GameState
 var current_player: Player
 
 
-func enter(_args := {}) -> void:
-	run_game()
+func enter(args := {}) -> void:
+	if args['previous_state'].name == 'Init':
+		run_game()
 
 
 func run_game() -> void:

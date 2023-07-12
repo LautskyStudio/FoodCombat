@@ -23,8 +23,7 @@ func _update() -> void:
 	_clear()
 
 	%VisualCard.card = state.customer
-	var available_players = state.active_players.filter(func (p): return len(p.waiting_area) < 3)
-	for player in available_players:
+	for player in state.available_targets:
 		var button = PlayerButton.instantiate()
 		button.player = player
 		%TargetContainer.add_child(button)

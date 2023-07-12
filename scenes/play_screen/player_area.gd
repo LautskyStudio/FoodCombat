@@ -1,4 +1,4 @@
-extends VBoxContainer
+extends MarginContainer
 
 
 const FlatCard = preload("res://models/card/flat_card.tscn")
@@ -39,7 +39,6 @@ func _process(_delta: float) -> void:
 	%StateLabel.text = player.state.description
 	%CoinNumberLabel.text = str(player.coins)
 	%FoodMaterialCardNumberLabel.text = str(len(player.food_materials))
-	%EndTurnButton.disabled = !player.is_finishing_turn_allowed
 	%PlayerInfoContainer.visible = player.is_active
 	%BankruptLabel.visible = !player.is_active
 

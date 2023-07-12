@@ -2,116 +2,118 @@
 
 [ext_resource type="Script" path="res://scenes/play_screen/player_area.gd" id="1_po3kp"]
 
-[node name="PlayerArea" type="VBoxContainer"]
-offset_right = 779.0
-offset_bottom = 230.0
+[node name="PlayerArea" type="MarginContainer"]
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
 script = ExtResource("1_po3kp")
 
-[node name="StateLabel" type="Label" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="PlayerLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "玩家0"
+
+[node name="StateLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
 text = "正在等待其他玩家"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PlayerInfoContainer" type="HBoxContainer" parent="."]
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="PlayerInfoContainer" type="HBoxContainer" parent="VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="GridContainer" type="GridContainer" parent="PlayerInfoContainer"]
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/PlayerInfoContainer"]
 layout_mode = 2
 columns = 2
 
-[node name="Label" type="Label" parent="PlayerInfoContainer/GridContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/PlayerInfoContainer/GridContainer"]
 layout_mode = 2
 text = "货币"
 
-[node name="CoinNumberLabel" type="Label" parent="PlayerInfoContainer/GridContainer"]
+[node name="CoinNumberLabel" type="Label" parent="VBoxContainer/PlayerInfoContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 
-[node name="Label3" type="Label" parent="PlayerInfoContainer/GridContainer"]
+[node name="Label3" type="Label" parent="VBoxContainer/PlayerInfoContainer/GridContainer"]
 layout_mode = 2
 text = "食材"
 
-[node name="FoodMaterialCardNumberLabel" type="Label" parent="PlayerInfoContainer/GridContainer"]
+[node name="FoodMaterialCardNumberLabel" type="Label" parent="VBoxContainer/PlayerInfoContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 
-[node name="VSeparator" type="VSeparator" parent="PlayerInfoContainer"]
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/PlayerInfoContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer4" type="VBoxContainer" parent="PlayerInfoContainer"]
+[node name="VBoxContainer4" type="VBoxContainer" parent="VBoxContainer/PlayerInfoContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PlayerInfoContainer/VBoxContainer4"]
+[node name="Label" type="Label" parent="VBoxContainer/PlayerInfoContainer/VBoxContainer4"]
 layout_mode = 2
 text = "店铺区"
 
-[node name="DecorationArea" type="VBoxContainer" parent="PlayerInfoContainer/VBoxContainer4"]
+[node name="DecorationArea" type="VBoxContainer" parent="VBoxContainer/PlayerInfoContainer/VBoxContainer4"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VSeparator5" type="VSeparator" parent="PlayerInfoContainer"]
+[node name="VSeparator5" type="VSeparator" parent="VBoxContainer/PlayerInfoContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PlayerInfoContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PlayerInfoContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PlayerInfoContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/PlayerInfoContainer/VBoxContainer"]
 layout_mode = 2
 text = "等待区"
 
-[node name="WaitingArea" type="VBoxContainer" parent="PlayerInfoContainer/VBoxContainer"]
+[node name="WaitingArea" type="VBoxContainer" parent="VBoxContainer/PlayerInfoContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VSeparator2" type="VSeparator" parent="PlayerInfoContainer"]
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/PlayerInfoContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="PlayerInfoContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/PlayerInfoContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PlayerInfoContainer/VBoxContainer2"]
+[node name="Label" type="Label" parent="VBoxContainer/PlayerInfoContainer/VBoxContainer2"]
 layout_mode = 2
 text = "就餐区"
 
-[node name="EatingArea" type="VBoxContainer" parent="PlayerInfoContainer/VBoxContainer2"]
+[node name="EatingArea" type="VBoxContainer" parent="VBoxContainer/PlayerInfoContainer/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VSeparator3" type="VSeparator" parent="PlayerInfoContainer"]
+[node name="VSeparator3" type="VSeparator" parent="VBoxContainer/PlayerInfoContainer"]
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="PlayerInfoContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/PlayerInfoContainer"]
 custom_minimum_size = Vector2(800, 200)
 layout_mode = 2
 
-[node name="FoodMaterialCardContainer" type="HBoxContainer" parent="PlayerInfoContainer/ScrollContainer"]
+[node name="FoodMaterialCardContainer" type="HBoxContainer" parent="VBoxContainer/PlayerInfoContainer/ScrollContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="VSeparator4" type="VSeparator" parent="PlayerInfoContainer"]
-layout_mode = 2
-
-[node name="VBoxContainer3" type="VBoxContainer" parent="PlayerInfoContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="EndTurnButton" type="Button" parent="PlayerInfoContainer/VBoxContainer3"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 4
-disabled = true
-text = "完成本轮"
-
-[node name="BankruptLabel" type="Label" parent="."]
+[node name="BankruptLabel" type="Label" parent="VBoxContainer"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2

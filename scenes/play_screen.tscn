@@ -102,11 +102,11 @@ size_flags_horizontal = 3
 
 [node name="PauseButton" type="Button" parent="HUD/HSplitContainer/GameArea"]
 unique_name_in_owner = true
-layout_mode = 1
+layout_mode = 2
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 88.0
-offset_bottom = 47.0
+offset_bottom = 48.0
 text = "暂停菜单"
 
 [node name="LeftPlayerContainer" type="PanelContainer" parent="HUD/HSplitContainer/GameArea"]
@@ -323,7 +323,7 @@ layout_mode = 1
 offset_left = 16.0
 offset_top = 64.0
 offset_right = 188.0
-offset_bottom = 159.0
+offset_bottom = 144.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HUD/HSplitContainer/GameArea/OptionsContainer"]
 layout_mode = 2
@@ -339,10 +339,6 @@ layout_mode = 2
 disabled = true
 button_pressed = true
 text = "观察者视角"
-
-[node name="CheckBox2" type="CheckBox" parent="HUD/HSplitContainer/GameArea/OptionsContainer/VBoxContainer"]
-layout_mode = 2
-text = "AI 跳过全部客人"
 
 [node name="PauseMenu" parent="HUD/HSplitContainer/GameArea" instance=ExtResource("9_exsm3")]
 unique_name_in_owner = true

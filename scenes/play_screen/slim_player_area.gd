@@ -1,4 +1,4 @@
-extends VBoxContainer
+extends MarginContainer
 
 
 const FlatCard = preload("res://models/card/flat_card.tscn")

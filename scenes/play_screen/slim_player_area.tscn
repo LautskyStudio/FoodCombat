@@ -2,76 +2,84 @@
 
 [ext_resource type="Script" path="res://scenes/play_screen/slim_player_area.gd" id="1_obxim"]
 
-[node name="SlimPlayerArea" type="VBoxContainer"]
+[node name="SlimPlayerArea" type="MarginContainer"]
+custom_minimum_size = Vector2(200, 0)
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
 script = ExtResource("1_obxim")
 
-[node name="PlayerNameLabel" type="Label" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="PlayerNameLabel" type="Label" parent="VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "玩家"
 horizontal_alignment = 1
 
-[node name="PlayerInfoContainer" type="GridContainer" parent="."]
+[node name="PlayerInfoContainer" type="GridContainer" parent="VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 columns = 2
 
-[node name="CoinLabel" type="Label" parent="PlayerInfoContainer"]
+[node name="CoinLabel" type="Label" parent="VBoxContainer/PlayerInfoContainer"]
 layout_mode = 2
 text = "货币"
 
-[node name="CoinNumberLabel" type="Label" parent="PlayerInfoContainer"]
+[node name="CoinNumberLabel" type="Label" parent="VBoxContainer/PlayerInfoContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "店铺卡、装扮卡（最多同时装备三张，每种类型限一张）"
 mouse_filter = 1
 text = "0"
 
-[node name="FoodMaterialCardNumberLabel" type="Label" parent="PlayerInfoContainer"]
+[node name="FoodMaterialCardNumberLabel" type="Label" parent="VBoxContainer/PlayerInfoContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "店铺卡、装扮卡（最多同时装备三张，每种类型限一张）"
 mouse_filter = 1
 text = "手牌 0"
 
-[node name="FoodMaterialArea" type="HBoxContainer" parent="PlayerInfoContainer"]
+[node name="FoodMaterialArea" type="HBoxContainer" parent="VBoxContainer/PlayerInfoContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "店铺卡、装扮卡（最多同时装备三张，每种类型限一张）"
 
-[node name="Label" type="Label" parent="PlayerInfoContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/PlayerInfoContainer"]
 layout_mode = 2
 tooltip_text = "店铺卡、装扮卡（最多同时装备三张，每种类型限一张）"
 mouse_filter = 1
 text = "店铺区"
 
-[node name="DecorationArea" type="HBoxContainer" parent="PlayerInfoContainer"]
+[node name="DecorationArea" type="HBoxContainer" parent="VBoxContainer/PlayerInfoContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 alignment = 1
 
-[node name="Label2" type="Label" parent="PlayerInfoContainer"]
+[node name="Label2" type="Label" parent="VBoxContainer/PlayerInfoContainer"]
 layout_mode = 2
 tooltip_text = "店铺卡、装扮卡（最多同时装备三张，每种类型限一张）"
 mouse_filter = 1
 text = "等候区"
 
-[node name="WaitingArea" type="HBoxContainer" parent="PlayerInfoContainer"]
+[node name="WaitingArea" type="HBoxContainer" parent="VBoxContainer/PlayerInfoContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Label3" type="Label" parent="PlayerInfoContainer"]
+[node name="Label3" type="Label" parent="VBoxContainer/PlayerInfoContainer"]
 layout_mode = 2
 tooltip_text = "店铺卡、装扮卡（最多同时装备三张，每种类型限一张）"
 mouse_filter = 1
 text = "用餐区"
 
-[node name="EatingArea" type="HBoxContainer" parent="PlayerInfoContainer"]
+[node name="EatingArea" type="HBoxContainer" parent="VBoxContainer/PlayerInfoContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "店铺卡、装扮卡（最多同时装备三张，每种类型限一张）"
 
-[node name="BankruptLabel" type="Label" parent="."]
+[node name="BankruptLabel" type="Label" parent="VBoxContainer"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
