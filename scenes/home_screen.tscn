@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://8sqfhqpv6pjy"]
 
 [ext_resource type="Script" path="res://scenes/home_screen.gd" id="1_tg8cs"]
-[ext_resource type="Texture2D" uid="uid://c05ejugblnbcg" path="res://assets/sozaino.site/mashu1-.png" id="2_pf1ov"]
+[ext_resource type="Texture2D" uid="uid://c05ejugblnbcg" path="res://assets/textures/sozaino.site/mashu1-.png" id="2_pf1ov"]
 
 [node name="HomeScreen" type="Control"]
 layout_mode = 3
@@ -74,7 +74,7 @@ custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 min_value = 2.0
 max_value = 6.0
-value = 4.0
+value = 3.0
 rounded = true
 tick_count = 5
 ticks_on_borders = true
@@ -84,7 +84,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "4"
+text = "3"
 editable = false
 
 [node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/GridContainer"]

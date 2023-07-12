@@ -14,7 +14,7 @@ config/name="Food Combat"
 config/name_localized={
 "zh": "美食大作战"
 }
-run/main_scene="res://scenes/play_screen.tscn"
+run/main_scene="res://scenes/home_screen.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -36,6 +36,10 @@ window/size/viewport_height=900
 [dotnet]
 
 project/assembly_name="FoodCombat"
+
+[gui]
+
+theme/custom_font="res://assets/fonts/Noto_Sans_SC/NotoSansSC-Medium.otf"
 
 [input]
 
